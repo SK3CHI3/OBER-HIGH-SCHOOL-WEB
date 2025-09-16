@@ -1,20 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import schoolLogo from "@/assets/school-logo.png";
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Academics", href: "#academics" },
-    { name: "Admissions", href: "#admissions" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "News", href: "#news" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Academics", href: "/academics" },
+    { name: "Admissions", href: "/admissions" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "News", href: "/news" },
+    { name: "Contact", href: "/contact" },
   ];
+
+  const isActive = (href: string) => {
+    if (href === "/" && location.pathname === "/") return true;
+    return href !== "/" && location.pathname.startsWith(href);
+  };
 
   return (
     <>
@@ -43,27 +50,29 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
+            <Link to="/" className="flex items-center space-x-3">
               <img src={schoolLogo} alt="Ober Boys High School" className="h-12 w-12" />
               <div>
                 <div className="text-lg font-bold text-primary">Ober Boys High School</div>
                 <div className="text-sm text-muted-foreground">Excellence in Education</div>
               </div>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="text-foreground hover:text-primary transition-school font-medium"
+                  to={item.href}
+                  className={`text-foreground hover:text-primary transition-school font-medium ${
+                    isActive(item.href) ? 'text-primary font-semibold' : ''
+                  }`}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
-              <Button variant="default" size="sm">
-                Apply Now
+              <Button asChild variant="default" size="sm">
+                <Link to="/admissions">Apply Now</Link>
               </Button>
             </div>
 
@@ -85,17 +94,19 @@ const Navigation = () => {
             <div className="md:hidden py-4 border-t">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
-                    className="text-foreground hover:text-primary transition-school font-medium"
+                    to={item.href}
+                    className={`text-foreground hover:text-primary transition-school font-medium ${
+                      isActive(item.href) ? 'text-primary font-semibold' : ''
+                    }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
-                <Button variant="default" size="sm" className="w-fit">
-                  Apply Now
+                <Button asChild variant="default" size="sm" className="w-fit">
+                  <Link to="/admissions">Apply Now</Link>
                 </Button>
               </div>
             </div>
