@@ -34,14 +34,14 @@ const News = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [ref1, inView1] = useInView({
     triggerOnce: true,
-    threshold: 0.2,
-    rootMargin: "0px 0px -100px 0px"
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
   });
   
   const [ref2, inView2] = useInView({
     triggerOnce: true,
-    threshold: 0.2,
-    rootMargin: "0px 0px -100px 0px"
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
   });
 
       // Sample data for development (replace with Supabase data)
@@ -259,25 +259,31 @@ const News = () => {
               <p className="text-muted-foreground">Try adjusting your search or filter criteria.</p>
             </div>
           ) : (
-          <motion.div 
-            ref={ref1}
-            className="space-y-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-          >
-              {filteredNews.map((article, index) => (
+          <div className="space-y-8">
+              {filteredNews.map((article, index) => {
+                const [ref, inView] = useInView({
+                  triggerOnce: true,
+                  threshold: 0.1,
+                  rootMargin: "0px 0px -30px 0px"
+                });
+                
+                return (
                 <motion.div
                   key={article.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  ref={ref}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: 0.05,
+                    ease: "easeOut"
+                  }}
                 >
                   <Card className="shadow-school transition-school hover:shadow-strong overflow-hidden">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
                       {/* Article Image */}
                       <div className="lg:col-span-1">
-                        <div className="relative h-64 lg:h-full">
+                        <div className="relative h-48 sm:h-64 lg:h-full">
                           <img
                             src={article.image_url}
                             alt={article.title}
@@ -294,7 +300,7 @@ const News = () => {
                       </div>
                       
                       {/* Article Content */}
-                      <div className="lg:col-span-2 p-6">
+                      <div className="lg:col-span-2 p-4 sm:p-6">
                   <div className="flex flex-wrap items-center gap-4 mb-4">
                     <Badge variant="outline">{article.category}</Badge>
                     <div className="flex items-center text-sm text-muted-foreground space-x-4">
@@ -338,8 +344,9 @@ const News = () => {
                     </div>
               </Card>
                 </motion.div>
-            ))}
-          </motion.div>
+                );
+              })}
+          </div>
           )}
         </div>
       </section>
