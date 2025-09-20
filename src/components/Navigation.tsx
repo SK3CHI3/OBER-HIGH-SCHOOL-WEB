@@ -68,16 +68,16 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 group">
+            <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <img src={schoolLogo} alt="Ober Boys High School" className="h-10 w-10 sm:h-12 sm:w-12" />
+                <img src={schoolLogo} alt="Ober Boys High School" className="h-8 w-8 sm:h-12 sm:w-12" />
               </motion.div>
-              <div className="hidden sm:block">
-                <div className="text-lg font-bold text-primary">Ober Boys High School</div>
-                <div className="text-sm text-muted-foreground">Excellence in Education</div>
+              <div className="block">
+                <div className="text-sm sm:text-lg font-bold text-primary leading-tight">Ober Boys High School</div>
+                <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Excellence in Education</div>
               </div>
             </Link>
 
