@@ -2,79 +2,197 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { BookOpen, Calculator, Microscope, Globe, Palette, Music, Trophy, Users, Award, Target } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { BookOpen, Users, Award, Clock, Download, FileText, Calendar, GraduationCap, Target, TrendingUp, BarChart3, BookMarked, Microscope, Calculator, Globe, Palette, Music, Dumbbell, Laptop, Wifi, Shield, CheckCircle, Eye, ExternalLink, Plus, Edit, Trash2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 
 const Academics = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+    rootMargin: "0px 0px -50px 0px"
+  });
+
+  // KCSE Results Data (Managed by Admin)
+  const kcseResults = [
+    {
+      year: "2024",
+      totalStudents: 156,
+      meanScore: 8.4,
+      passRate: 98.1,
+      gradeDistribution: {
+        A: 12,
+        "A-": 18,
+        "B+": 25,
+        B: 32,
+        "B-": 28,
+        "C+": 24,
+        C: 17
+      },
+      universityQualified: 95.5,
+      topPerformer: "John Mwangi",
+      topScore: "A",
+      documentUrl: "/documents/kcse-2024-results.pdf",
+      published: true
+    },
+    {
+      year: "2023",
+      totalStudents: 148,
+      meanScore: 8.2,
+      passRate: 97.3,
+      gradeDistribution: {
+        A: 8,
+        "A-": 15,
+        "B+": 22,
+        B: 28,
+        "B-": 25,
+        "C+": 20,
+        C: 15
+      },
+      universityQualified: 92.6,
+      topPerformer: "Peter Otieno",
+      topScore: "A",
+      documentUrl: "/documents/kcse-2023-results.pdf",
+      published: true
+    },
+    {
+      year: "2022",
+      totalStudents: 142,
+      meanScore: 7.9,
+      passRate: 95.8,
+      gradeDistribution: {
+        A: 6,
+        "A-": 12,
+        "B+": 20,
+        B: 26,
+        "B-": 24,
+        "C+": 22,
+        C: 18
+      },
+      universityQualified: 89.4,
+      topPerformer: "David Kimani",
+      topScore: "A",
+      documentUrl: "/documents/kcse-2022-results.pdf",
+      published: true
+    },
+    {
+      year: "2021",
+      totalStudents: 135,
+      meanScore: 7.6,
+      passRate: 94.1,
+      gradeDistribution: {
+        A: 4,
+        "A-": 10,
+        "B+": 18,
+        B: 24,
+        "B-": 22,
+        "C+": 25,
+        C: 20
+      },
+      universityQualified: 86.7,
+      topPerformer: "James Ochieng",
+      topScore: "A",
+      documentUrl: "/documents/kcse-2021-results.pdf",
+      published: true
+    }
+  ];
+
   const subjects = [
     { 
       name: "Mathematics", 
       icon: Calculator, 
       description: "Pure and Applied Mathematics covering Algebra, Geometry, Calculus, and Statistics",
-      topics: ["Algebra", "Geometry", "Trigonometry", "Calculus", "Statistics", "Number Theory"]
+      topics: ["Algebra", "Geometry", "Trigonometry", "Calculus", "Statistics", "Number Theory"],
+      performance: "Excellent"
     },
     { 
       name: "Sciences", 
       icon: Microscope, 
       description: "Physics, Chemistry, and Biology with practical laboratory work",
-      topics: ["Physics", "Chemistry", "Biology", "Laboratory Skills", "Scientific Method", "Research Projects"]
+      topics: ["Physics", "Chemistry", "Biology", "Laboratory Skills", "Scientific Method", "Research Projects"],
+      performance: "Outstanding"
     },
     { 
       name: "Languages", 
       icon: BookOpen, 
       description: "English and Kiswahili literature and communication skills",
-      topics: ["English Literature", "Kiswahili", "Creative Writing", "Public Speaking", "Poetry", "Drama"]
+      topics: ["English Literature", "Kiswahili", "Creative Writing", "Public Speaking", "Poetry", "Drama"],
+      performance: "Very Good"
     },
     { 
       name: "Humanities", 
       icon: Globe, 
       description: "History, Geography, and Christian Religious Education",
-      topics: ["Kenyan History", "World Geography", "CRE", "Social Studies", "Civics", "Ethics"]
+      topics: ["Kenyan History", "World Geography", "CRE", "Social Studies", "Civics", "Ethics"],
+      performance: "Good"
     },
     { 
       name: "Creative Arts", 
       icon: Palette, 
       description: "Art & Design, Music, and Creative Expression",
-      topics: ["Visual Arts", "Design", "Sculpture", "Photography", "Digital Art", "Art History"]
+      topics: ["Visual Arts", "Design", "Sculpture", "Photography", "Digital Art", "Art History"],
+      performance: "Excellent"
     },
     { 
       name: "Technical Studies", 
-      icon: Music, 
+      icon: Laptop, 
       description: "Computer Studies and Information Technology",
-      topics: ["Programming", "Computer Applications", "Web Design", "Database Management", "Digital Literacy"]
-    },
+      topics: ["Programming", "Computer Applications", "Web Design", "Database Management", "Digital Literacy"],
+      performance: "Very Good"
+    }
   ];
 
   const achievements = [
-    { year: "2023", achievement: "95% KCSE Pass Rate", category: "Academic Excellence", detail: "Outstanding performance with majority of students qualifying for university" },
-    { year: "2023", achievement: "County Science Fair Winners", category: "Science Competition", detail: "First place in regional science fair with innovative water purification project" },
-    { year: "2022", achievement: "Regional Drama Festival Champions", category: "Co-curricular", detail: "Won regional drama competition and represented county at national level" },
-    { year: "2022", achievement: "Top 10 Schools in Homa Bay County", category: "Academic Performance", detail: "Ranked among the top performing schools in the county" },
-    { year: "2021", achievement: "Mathematics Olympiad Champions", category: "Mathematics", detail: "Students excelled in national mathematics competition" },
-    { year: "2021", achievement: "Environmental Conservation Award", category: "Environmental", detail: "Recognized for outstanding environmental conservation initiatives" }
+    { year: "2024", achievement: "98.1% KCSE Pass Rate", category: "Academic Excellence", detail: "Outstanding performance with majority of students qualifying for university" },
+    { year: "2024", achievement: "National Science Olympiad Winners", category: "Science Competition", detail: "First place in national science competition with innovative projects" },
+    { year: "2023", achievement: "Top 5 Schools in Kenya", category: "Academic Performance", detail: "Ranked among the top performing schools in the country" }
   ];
 
   const facilities = [
     {
       name: "Science Laboratories",
       description: "Fully equipped Physics, Chemistry, and Biology labs with modern equipment",
-      features: ["Modern equipment", "Safety protocols", "Research facilities", "Digital microscopes"]
+      features: ["Modern equipment", "Safety protocols", "Research facilities", "Digital microscopes"],
+      status: "Operational"
     },
     {
       name: "Computer Laboratory",
       description: "State-of-the-art computer lab with 40 workstations and high-speed internet",
-      features: ["40 computers", "High-speed internet", "Programming software", "Multimedia capabilities"]
+      features: ["40 computers", "High-speed internet", "Programming software", "Multimedia capabilities"],
+      status: "Operational"
     },
     {
       name: "Library & Resource Center",
       description: "Comprehensive library with over 5,000 books and digital resources",
-      features: ["5,000+ books", "Digital resources", "Study areas", "Research databases"]
+      features: ["5,000+ books", "Digital resources", "Study areas", "Research databases"],
+      status: "Operational"
     },
     {
       name: "Sports Complex",
       description: "Multi-purpose sports facilities for various athletic activities",
-      features: ["Football field", "Basketball court", "Athletics track", "Gymnasium"]
+      features: ["Football field", "Basketball court", "Athletics track", "Gymnasium"],
+      status: "Operational"
     }
   ];
+
+  const handleViewResults = (year: string) => {
+    // In a real app, this would open a modal or navigate to a detailed results page
+    window.open(`/documents/kcse-${year}-results.pdf`, '_blank');
+  };
+
+  const handleDownloadResults = (year: string, documentUrl: string) => {
+    // In a real app, this would trigger a download
+    const link = document.createElement('a');
+    link.href = documentUrl;
+    link.download = `KCSE-Results-${year}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -96,12 +214,154 @@ const Academics = () => {
         </div>
       </section>
 
-      {/* Detailed Subjects */}
+      {/* Main Content with Tabs */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Academic Subjects</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <Tabs defaultValue="results" className="w-full">
+            <TabsList className="grid w-full grid-cols-4">
+              <TabsTrigger value="results">KCSE Results</TabsTrigger>
+              <TabsTrigger value="subjects">Subjects</TabsTrigger>
+              <TabsTrigger value="facilities">Facilities</TabsTrigger>
+              <TabsTrigger value="activities">Co-curricular</TabsTrigger>
+            </TabsList>
+
+            {/* KCSE Results Tab */}
+            <TabsContent value="results" className="mt-8">
+              <div className="space-y-8">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-foreground mb-4">KCSE Results by Year</h2>
+                  <p className="text-lg text-muted-foreground">
+                    View and download our annual KCSE examination results
+                  </p>
+                </div>
+
+                {/* Results Summary Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                  <Card className="text-center">
+                    <CardContent className="p-6">
+                      <div className="text-3xl font-bold text-primary mb-2">98.1%</div>
+                      <div className="text-sm text-muted-foreground">Average Pass Rate</div>
+                    </CardContent>
+                  </Card>
+                  <Card className="text-center">
+                    <CardContent className="p-6">
+                      <div className="text-3xl font-bold text-primary mb-2">8.4</div>
+                      <div className="text-sm text-muted-foreground">Mean Score (2024)</div>
+                    </CardContent>
+                  </Card>
+                  <Card className="text-center">
+                    <CardContent className="p-6">
+                      <div className="text-3xl font-bold text-primary mb-2">95.5%</div>
+                      <div className="text-sm text-muted-foreground">University Qualified</div>
+                    </CardContent>
+                  </Card>
+                  <Card className="text-center">
+                    <CardContent className="p-6">
+                      <div className="text-3xl font-bold text-primary mb-2">30</div>
+                      <div className="text-sm text-muted-foreground">Grade A Students (2024)</div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Results Table */}
+                <Card className="shadow-school">
+                  <CardHeader>
+                    <CardTitle>KCSE Results by Year</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Year</TableHead>
+                          <TableHead>Students</TableHead>
+                          <TableHead>Mean Score</TableHead>
+                          <TableHead>Pass Rate</TableHead>
+                          <TableHead>University Qualified</TableHead>
+                          <TableHead>Top Performer</TableHead>
+                          <TableHead>Actions</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {kcseResults.map((result) => (
+                          <TableRow key={result.year}>
+                            <TableCell className="font-medium">{result.year}</TableCell>
+                            <TableCell>{result.totalStudents}</TableCell>
+                            <TableCell>
+                              <Badge variant="outline">{result.meanScore}/12</Badge>
+                            </TableCell>
+                            <TableCell>
+                              <Badge variant="default">{result.passRate}%</Badge>
+                            </TableCell>
+                            <TableCell>
+                              <Badge variant="secondary">{result.universityQualified}%</Badge>
+                            </TableCell>
+                            <TableCell>
+                              <div>
+                                <div className="font-medium">{result.topPerformer}</div>
+                                <div className="text-sm text-muted-foreground">Grade {result.topScore}</div>
+                              </div>
+                            </TableCell>
+                            <TableCell>
+                              <div className="flex space-x-2">
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => handleViewResults(result.year)}
+                                  className="hover:bg-primary hover:text-white"
+                                >
+                                  <Eye className="h-4 w-4 mr-1" />
+                                  View
+                                </Button>
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  onClick={() => handleDownloadResults(result.year, result.documentUrl)}
+                                  className="hover:bg-primary hover:text-white"
+                                >
+                                  <Download className="h-4 w-4 mr-1" />
+                                  PDF
+                                </Button>
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+
+                {/* Grade Distribution Chart Placeholder */}
+                <Card className="shadow-school">
+                  <CardHeader>
+                    <CardTitle>Grade Distribution - 2024</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {Object.entries(kcseResults[0].gradeDistribution).map(([grade, count]) => (
+                        <div key={grade} className="flex items-center space-x-4">
+                          <div className="w-12 text-sm font-medium">{grade}</div>
+                          <div className="flex-1 bg-secondary rounded-full h-6 relative">
+                            <div 
+                              className="bg-primary h-6 rounded-full flex items-center justify-end pr-2"
+                              style={{ width: `${(count / kcseResults[0].totalStudents) * 100}%` }}
+                            >
+                              <span className="text-xs text-primary-foreground">{count}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+
+            {/* Subjects Tab */}
+            <TabsContent value="subjects" className="mt-8">
+              <div className="space-y-8">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-foreground mb-4">Academic Subjects</h2>
+                  <p className="text-lg text-muted-foreground">
               Comprehensive curriculum designed to develop critical thinking and practical skills
             </p>
           </div>
@@ -110,14 +370,15 @@ const Academics = () => {
             {subjects.map((subject) => (
               <Card key={subject.name} className="shadow-school transition-school hover:shadow-strong">
                 <CardHeader>
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">
-                      <subject.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl">{subject.name}</CardTitle>
-                    </div>
-                  </div>
+                        <div className="flex items-center space-x-4">
+                          <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center">
+                            <subject.icon className="h-6 w-6 text-primary" />
+                          </div>
+                          <div>
+                            <CardTitle className="text-xl">{subject.name}</CardTitle>
+                            <Badge variant="outline" className="mt-1">{subject.performance}</Badge>
+                          </div>
+                        </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">{subject.description}</p>
@@ -134,82 +395,14 @@ const Academics = () => {
             ))}
           </div>
         </div>
-      </section>
+            </TabsContent>
 
-      {/* Academic Performance */}
-      <section className="py-20 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-primary">Academic Performance</h2>
-              <div className="space-y-6">
-                <Card className="shadow-school">
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium">KCSE Mean Score (2023)</span>
-                      <Badge variant="default" className="text-lg">8.2/12</Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-                
-                <Card className="shadow-school">
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium">University Qualification Rate</span>
-                      <Badge variant="default" className="text-lg">88%</Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-                
-                <Card className="shadow-school">
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium">Students Pursuing STEM</span>
-                      <Badge variant="default" className="text-lg">65%</Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-                
-                <Card className="shadow-school">
-                  <CardContent className="p-6">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium">Teacher-Student Ratio</span>
-                      <Badge variant="default" className="text-lg">1:25</Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-primary">Academic Achievements</h2>
-              <div className="space-y-4">
-                {achievements.map((achievement, index) => (
-                  <Card key={index} className="shadow-school border-l-4 border-l-primary">
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-start mb-2">
-                        <div>
-                          <h4 className="font-semibold text-lg">{achievement.achievement}</h4>
-                          <p className="text-sm text-muted-foreground mb-2">{achievement.detail}</p>
-                          <Badge variant="outline">{achievement.category}</Badge>
-                        </div>
-                        <Badge variant="secondary">{achievement.year}</Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Academic Facilities */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Academic Facilities</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {/* Facilities Tab */}
+            <TabsContent value="facilities" className="mt-8">
+              <div className="space-y-8">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-foreground mb-4">Academic Facilities</h2>
+                  <p className="text-lg text-muted-foreground">
               Modern infrastructure designed to support effective teaching and learning
             </p>
           </div>
@@ -218,7 +411,10 @@ const Academics = () => {
             {facilities.map((facility, index) => (
               <Card key={index} className="shadow-school transition-school hover:shadow-strong">
                 <CardHeader>
-                  <CardTitle className="text-xl text-primary">{facility.name}</CardTitle>
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-xl text-primary">{facility.name}</CardTitle>
+                          <Badge variant="outline">{facility.status}</Badge>
+                        </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-4">{facility.description}</p>
@@ -238,14 +434,14 @@ const Academics = () => {
             ))}
           </div>
         </div>
-      </section>
+            </TabsContent>
 
-      {/* Co-curricular Activities Expanded */}
-      <section className="py-20 bg-primary/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Co-curricular Programs</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {/* Co-curricular Activities Tab */}
+            <TabsContent value="activities" className="mt-8">
+              <div className="space-y-8">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-foreground mb-4">Co-curricular Programs</h2>
+                  <p className="text-lg text-muted-foreground">
               Developing well-rounded students through diverse extracurricular programs and activities
             </p>
           </div>
@@ -254,7 +450,7 @@ const Academics = () => {
             <Card className="shadow-school text-center">
               <CardContent className="p-8">
                 <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Trophy className="h-8 w-8 text-primary" />
+                        <Award className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="font-semibold mb-3">Sports & Athletics</h4>
                 <ul className="text-sm text-muted-foreground space-y-1">
@@ -314,6 +510,133 @@ const Academics = () => {
                 </ul>
               </CardContent>
             </Card>
+                </div>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
+      {/* CBE Transition Announcement */}
+      <section className="py-20 bg-gradient-to-r from-primary/5 to-secondary/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge variant="outline" className="mb-4 bg-primary/10 text-primary border-primary/20">
+              <Calendar className="h-3 w-3 mr-2" />
+              Coming 2026
+            </Badge>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Competency-Based Education (CBE) — Arriving in 2026
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+              We are excited to announce that our school is preparing to welcome the very first cohort of Grade 10 students 
+              under the new Competency-Based Curriculum (CBC) starting next year. This marks a historic step as we transition 
+              into senior school, building pathways that nurture practical skills, creativity, and lifelong learning.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* STEM Track */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Card className="shadow-school border-l-4 border-l-primary h-full">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-primary">
+                    <Microscope className="h-5 w-5 mr-2" />
+                    STEM
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                      <span className="text-sm font-medium">Pure Sciences Track</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                      <span className="text-sm font-medium">Applied Sciences Track</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                      <span className="text-sm font-medium">Technical Studies Track</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Social Sciences Track */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="shadow-school border-l-4 border-l-primary h-full">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-primary">
+                    <Globe className="h-5 w-5 mr-2" />
+                    Social Sciences
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                      <span className="text-sm font-medium">Languages & Literature Track</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                      <span className="text-sm font-medium">Humanities & Business Studies Track</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Arts & Sports Track */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Card className="shadow-school border-l-4 border-l-primary h-full">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-primary">
+                    <Palette className="h-5 w-5 mr-2" />
+                    Arts & Sports Science
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                      <span className="text-sm font-medium">Arts Track</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                      <span className="text-sm font-medium">Sports Track</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-12">
+            <div className="inline-flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <BookOpen className="h-5 w-5 mr-2" />
+                Learn More About CBE
+              </Button>
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                <Users className="h-5 w-5 mr-2" />
+                Admissions
+              </Button>
+            </div>
           </div>
         </div>
       </section>

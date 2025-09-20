@@ -1,31 +1,48 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const NewsPreview = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+    rootMargin: "0px 0px -50px 0px"
+  });
+
+  const newsImages = [
+    "/school-hero.jpg", // Main school building
+    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Students in classroom
+    "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Library
+  ];
+
   const news = [
     {
       id: 1,
-      title: "Ober Boys Wins Regional Science Fair Competition",
-      excerpt: "Our Form 3 students took first place in the regional science fair with their innovative water purification project.",
-      date: "2024-03-15",
-      category: "Achievement"
+      title: "Ober Boys Wins National Science Olympiad Championship",
+      excerpt: "Our students secured first place in the National Science Olympiad with their groundbreaking renewable energy project, earning international recognition.",
+      date: "2024-12-15",
+      category: "Achievement",
+      image: "/school-hero.jpg"
     },
     {
       id: 2, 
-      title: "New Computer Laboratory Officially Opened",
-      excerpt: "The school inaugurated a state-of-the-art computer lab equipped with 40 modern computers to enhance digital learning.",
-      date: "2024-03-10",
-      category: "Infrastructure"
+      title: "New STEM Innovation Center Opens",
+      excerpt: "The school inaugurated a cutting-edge STEM Innovation Center with advanced robotics, AI labs, and 3D printing facilities to prepare students for the future.",
+      date: "2024-12-10",
+      category: "Infrastructure",
+      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
       id: 3,
-      title: "Form 4 Students Excel in Mock Examinations", 
-      excerpt: "Our KCSE candidates showed impressive performance in the mock examinations with 92% scoring above average.",
-      date: "2024-03-05",
-      category: "Academic"
+      title: "Record-Breaking KCSE Results Achieved", 
+      excerpt: "Our 2024 KCSE candidates achieved a remarkable 98% pass rate with 15 students scoring A grades, setting a new school record.",
+      date: "2024-12-05",
+      category: "Academic",
+      image: "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -42,29 +59,61 @@ const NewsPreview = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {news.map((item) => (
-            <Card key={item.id} className="shadow-school transition-school hover:shadow-strong hover-scale">
-              <CardHeader>
-                <div className="flex justify-between items-start mb-2">
-                  <Badge variant="outline">{item.category}</Badge>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    {new Date(item.date).toLocaleDateString()}
+        <motion.div 
+          ref={ref}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+        >
+          {news.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+            >
+              <Link to="/news">
+                <Card className="shadow-school transition-school hover:shadow-strong h-full overflow-hidden cursor-pointer group">
+                  <div className="relative">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <Badge variant="outline" className="bg-white/90 text-foreground">
+                        {item.category}
+                      </Badge>
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <div className="flex items-center text-sm text-white bg-black/50 px-2 py-1 rounded">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        {new Date(item.date).toLocaleDateString()}
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <CardTitle className="text-lg leading-tight">{item.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">{item.excerpt}</p>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Read More
-                  <ArrowRight className="h-4 w-4 ml-1" />
-                </Button>
-              </CardContent>
-            </Card>
+                  <CardHeader>
+                    <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground mb-4 line-clamp-3">{item.excerpt}</p>
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <div className="text-primary group-hover:text-primary/80 transition-colors flex items-center">
+                        Read More
+                        <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </motion.div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="text-center">
           <Button asChild variant="outline" size="lg">

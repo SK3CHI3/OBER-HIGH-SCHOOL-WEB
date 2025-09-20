@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
+# Ober Boys High School Website
 
-## Project info
+A modern, responsive website for Ober Boys High School in Homa Bay County, Kenya. Built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/8fc0113f-6366-4996-abff-4492ca3c80f3
+## About
 
-## How can I edit this code?
+Ober Boys High School is a public secondary school established in 1994, committed to providing quality education that develops critical thinking, creativity, and character. We follow the Kenyan 8-4-4 curriculum while incorporating modern teaching methods and technology.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Responsive Design** - Optimized for all devices
+- **Modern UI/UX** - Clean, professional design with smooth animations
+- **SEO Optimized** - Built for search engine visibility
+- **Accessibility** - WCAG compliant design
+- **Performance** - Fast loading and optimized assets
+- **Government Standards** - Compliant with Ministry of Education requirements
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8fc0113f-6366-4996-abff-4492ca3c80f3) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-**Use your preferred IDE**
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. Open your browser and navigate to `http://localhost:5173`
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Building for Production
 
-Follow these steps:
+1. Build the project:
+   ```bash
+   npm run build
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. The built files will be in the `dist` directory
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Project Structure
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/          # Reusable UI components
+├── pages/              # Page components
+├── lib/                # Utility functions and configurations
+├── assets/             # Static assets
+└── main.tsx           # Application entry point
 ```
 
-**Edit a file directly in GitHub**
+## Technologies Used
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Component library
+- **Lucide React** - Icon library
+- **Framer Motion** - Animation library
+- **React Router** - Client-side routing
+- **React Intersection Observer** - Scroll animations
 
-**Use GitHub Codespaces**
+## Pages
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Home** - School overview and highlights
+- **About** - School history, mission, vision, and values
+- **Academics** - KCSE results, subjects, and CBE transition
+- **Admissions** - Application process and requirements
+- **News** - Latest school news and events
+- **Contact** - Contact information and location
+- **Gallery** - School photos and virtual tour
 
-## What technologies are used for this project?
+## Deployment
 
-This project is built with:
+The website is optimized for deployment on Netlify with automatic builds and deployments.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## School Information
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/8fc0113f-6366-4996-abff-4492ca3c80f3) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **Name**: Ober Boys High School
+- **Location**: Homa Bay County, Kenya
+- **Established**: 1994
+- **Type**: Public Secondary School
+- **Curriculum**: 8-4-4 (Transitioning to CBC)
+- **Website**: https://oberboyshigh.ac.ke

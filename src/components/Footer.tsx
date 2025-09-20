@@ -20,8 +20,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm opacity-90 mb-6 max-w-md">
-              Nurturing Excellence, Building Character, and Shaping Leaders for Tomorrow. 
-              Quality secondary education in Homa Bay County since 1998.
+              Empowering Young Men Through Academic Excellence, Character Development, and Leadership Training. 
+              Premier boys' high school in Kenya since 1994.
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-white/20">
@@ -80,21 +80,22 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-4 w-4 opacity-75" />
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-4 w-4 opacity-75 mt-1 flex-shrink-0" />
                 <span className="text-sm opacity-90">
                   P.O. Box 123<br />
-                  Homa Bay, Kenya
+                  Homa Bay - 40300<br />
+                  Kenya
                 </span>
               </div>
-              <div className="flex items-center space-x-3">
+              <a href="tel:+254201234567" className="flex items-center space-x-3 hover:opacity-100 transition-opacity">
                 <Phone className="h-4 w-4 opacity-75" />
-                <span className="text-sm opacity-90">+254 XXX XXX XXX</span>
-              </div>
-              <div className="flex items-center space-x-3">
+                <span className="text-sm opacity-90">+254 20 123 4567</span>
+              </a>
+              <a href="mailto:info@oberboyshigh.ac.ke" className="flex items-center space-x-3 hover:opacity-100 transition-opacity">
                 <Mail className="h-4 w-4 opacity-75" />
-                <span className="text-sm opacity-90">info@oberboyshigh.ac.ke</span>
-              </div>
+                <span className="text-sm opacity-90 break-all">info@oberboyshigh.ac.ke</span>
+              </a>
             </div>
           </div>
         </div>
