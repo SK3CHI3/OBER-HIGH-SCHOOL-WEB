@@ -26,6 +26,89 @@ interface NewsArticle {
   status: string;
 }
 
+// News Article Card Component
+const NewsArticleCard = ({ article, index }: { article: NewsArticle; index: number }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+    rootMargin: "0px 0px -30px 0px"
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 15 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+      transition={{ 
+        duration: 0.5, 
+        delay: 0.05,
+        ease: "easeOut"
+      }}
+    >
+      <Card className="shadow-school transition-school hover:shadow-strong overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
+          {/* Article Image */}
+          <div className="lg:col-span-1">
+            <div className="relative h-48 sm:h-64 lg:h-full">
+              <img
+                src={article.image_url}
+                alt={article.title}
+                className="w-full h-full object-cover"
+              />
+              {article.featured && (
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-primary text-primary-foreground">
+                    Featured
+                  </Badge>
+                </div>
+              )}
+            </div>
+          </div>
+          
+          {/* Article Content */}
+          <div className="lg:col-span-2 p-4 sm:p-6">
+            <div className="flex flex-wrap items-center gap-4 mb-4">
+              <Badge variant="outline">{article.category}</Badge>
+              <div className="flex items-center text-sm text-muted-foreground space-x-4">
+                <div className="flex items-center">
+                  <Calendar className="h-4 w-4 mr-1" />
+                  <span>{new Date(article.published_at).toLocaleDateString()}</span>
+                </div>
+                <div className="flex items-center">
+                  <User className="h-4 w-4 mr-1" />
+                  <span>{article.author}</span>
+                </div>
+              </div>
+            </div>
+            
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3 leading-tight">
+              {article.title}
+            </h2>
+            
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              {article.excerpt}
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button 
+                onClick={() => alert(`Opening article: ${article.title}`)}
+                className="bg-primary hover:bg-primary/90"
+              >
+                <Eye className="h-4 w-4 mr-2" />
+                Read Full Article
+              </Button>
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                <ArrowRight className="h-4 w-4 mr-2" />
+                Share
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </motion.div>
+  );
+};
+
 const News = () => {
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [filteredNews, setFilteredNews] = useState<NewsArticle[]>([]);
@@ -260,92 +343,9 @@ const News = () => {
             </div>
           ) : (
           <div className="space-y-8">
-              {filteredNews.map((article, index) => {
-                const [ref, inView] = useInView({
-                  triggerOnce: true,
-                  threshold: 0.1,
-                  rootMargin: "0px 0px -30px 0px"
-                });
-                
-                return (
-                <motion.div
-                  key={article.id}
-                  ref={ref}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: 0.05,
-                    ease: "easeOut"
-                  }}
-                >
-                  <Card className="shadow-school transition-school hover:shadow-strong overflow-hidden">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-                      {/* Article Image */}
-                      <div className="lg:col-span-1">
-                        <div className="relative h-48 sm:h-64 lg:h-full">
-                          <img
-                            src={article.image_url}
-                            alt={article.title}
-                            className="w-full h-full object-cover"
-                          />
-                          {article.featured && (
-                            <div className="absolute top-4 left-4">
-                              <Badge className="bg-primary text-primary-foreground">
-                                Featured
-                              </Badge>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      
-                      {/* Article Content */}
-                      <div className="lg:col-span-2 p-4 sm:p-6">
-                  <div className="flex flex-wrap items-center gap-4 mb-4">
-                    <Badge variant="outline">{article.category}</Badge>
-                    <div className="flex items-center text-sm text-muted-foreground space-x-4">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                              {new Date(article.published_at).toLocaleDateString()}
-                      </div>
-                      <div className="flex items-center">
-                        <User className="h-4 w-4 mr-1" />
-                        {article.author}
-                      </div>
-                    </div>
-                  </div>
-                        
-                        <CardTitle className="text-2xl leading-tight mb-4">
-                          {article.title}
-                        </CardTitle>
-                        
-                        <p className="text-muted-foreground leading-relaxed mb-6">
-                          {article.excerpt}
-                        </p>
-                        
-                        <div className="flex items-center justify-between">
-                          <Button 
-                            variant="ghost" 
-                            className="p-0 h-auto text-primary group"
-                            onClick={() => {
-                              // In a real app, this would open a detailed article view
-                              alert(`Opening full article: "${article.title}"`);
-                            }}
-                          >
-                            Read Full Article
-                            <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                          </Button>
-                          <div className="flex items-center text-sm text-muted-foreground">
-                            <Eye className="h-4 w-4 mr-1" />
-                            <span>View Details</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-              </Card>
-                </motion.div>
-                );
-              })}
+              {filteredNews.map((article, index) => (
+                <NewsArticleCard key={article.id} article={article} index={index} />
+              ))}
           </div>
           )}
         </div>

@@ -116,13 +116,25 @@ const Navigation = () => {
           {/* Mobile Navigation */}
           <AnimatePresence>
             {isMobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="lg:hidden overflow-hidden"
-              >
+              <>
+                {/* Backdrop */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 lg:hidden"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                />
+                
+                {/* Menu */}
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="lg:hidden overflow-hidden relative z-50"
+                >
                 <div className="px-2 pt-2 pb-4 space-y-1 bg-background border-t border-border/50">
                   {navItems.map((item, index) => (
                     <motion.div
@@ -163,7 +175,8 @@ const Navigation = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+                </motion.div>
+              </>
             )}
           </AnimatePresence>
         </div>
