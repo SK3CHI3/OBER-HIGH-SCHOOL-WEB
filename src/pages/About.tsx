@@ -2,36 +2,65 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Target, Eye, Heart, Trophy, Users, BookOpen, Award, Clock, MapPin, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Target, Eye, Heart, Trophy, Users, BookOpen, Award, Clock, MapPin, Phone, Quote, GraduationCap, Microscope, Calculator, Globe, Palette, Music, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const About = () => {
-  const milestones = [
-    { year: "1998", event: "School founded with 120 students" },
-    { year: "2005", event: "First computer laboratory established" },
-    { year: "2010", event: "Science laboratories upgraded" },
-    { year: "2015", event: "New dormitories constructed" },
-    { year: "2020", event: "Digital learning platform launched" },
-    { year: "2023", event: "Achieved 95% KCSE pass rate" }
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const programs = [
+    {
+      title: "Academic Excellence Program",
+      description: "Our comprehensive academic program follows the Kenyan 8-4-4 curriculum with enhanced teaching methods and modern facilities. We maintain a 98% KCSE pass rate through rigorous academic standards, personalized attention, and continuous assessment.",
+      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      subjects: ["Mathematics", "Sciences", "Languages", "Humanities", "Business Studies"]
+    },
+    {
+      title: "Character Development Program",
+      description: "We focus on building strong moral character, leadership skills, and ethical values. Our program includes mentorship, community service, and leadership training to develop well-rounded individuals who contribute positively to society.",
+      image: "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      subjects: ["Leadership Training", "Mentorship", "Community Service", "Ethics Education"]
+    },
+    {
+      title: "Co-curricular Activities",
+      description: "Our diverse co-curricular program includes sports, music, drama, debate, and academic clubs. These activities help students discover their talents, build teamwork skills, and develop confidence outside the classroom.",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      subjects: ["Sports", "Music & Drama", "Debate Club", "Science Club", "Environmental Club"]
+    },
+    {
+      title: "STEM Innovation Program",
+      description: "Our cutting-edge STEM program prepares students for the future with modern laboratories, computer studies, robotics, and innovation projects. We have a dedicated STEM Innovation Center with 3D printing and AI labs.",
+      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      subjects: ["Computer Studies", "Robotics", "3D Printing", "AI Labs", "Innovation Projects"]
+    }
   ];
 
-  const leadership = [
+  const faqs = [
     {
-      name: "Mr. David Otieno",
-      position: "Principal",
-      qualification: "M.Ed Educational Leadership",
-      experience: "15 years in education"
+      question: "What makes Ober Boys High School unique?",
+      answer: "Ober Boys High School stands out for its combination of academic excellence (98% KCSE pass rate), character development programs, modern facilities including a STEM Innovation Center, and a strong alumni network. We focus on developing well-rounded individuals who excel both academically and personally."
     },
     {
-      name: "Mrs. Grace Achieng",
-      position: "Deputy Principal",
-      qualification: "M.Sc Mathematics Education",
-      experience: "12 years in education"
+      question: "What are the admission requirements?",
+      answer: "We require a completed KCPE certificate with minimum 300 marks, birth certificate, primary school leaving certificate, medical examination form, four passport-size photographs, fee payment receipt, and parent/guardian identification documents. We also conduct interviews to assess character and potential."
     },
     {
-      name: "Mr. Peter Ouma",
-      position: "Director of Studies",
-      qualification: "B.Ed Science Education",
-      experience: "10 years in education"
+      question: "What facilities does the school have?",
+      answer: "Our facilities include 32 modern classrooms, fully equipped science laboratories (Physics, Chemistry, Biology), a comprehensive library with over 5,000 books, computer laboratories, STEM Innovation Center, sports facilities (football field, basketball court, athletics track), and well-maintained dormitories."
+    },
+    {
+      question: "What co-curricular activities are available?",
+      answer: "We offer a wide range of activities including football, basketball, athletics, swimming, music and drama clubs, debate society, science club, environmental club, leadership training, and academic competitions. These activities help students develop talents and build character."
+    },
+    {
+      question: "How do you ensure student safety and discipline?",
+      answer: "We maintain a safe and disciplined environment through strict security measures, 24/7 supervision, clear behavioral guidelines, regular counseling sessions, and a strong partnership with parents. Our discipline system focuses on positive reinforcement and character building."
+    },
+    {
+      question: "What support do you provide for struggling students?",
+      answer: "We offer personalized tutoring, remedial classes, counseling services, peer mentoring programs, and regular progress monitoring. Our teachers provide individual attention and work closely with parents to ensure every student reaches their potential."
     }
   ];
 
@@ -39,286 +68,172 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section */}
+      {/* Principal's Message Section */}
       <section className="py-20 bg-primary/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">About Us</Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Excellence in Education Since 1998
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Ober Boys High School has been a beacon of quality secondary education in Homa Bay County, 
-              transforming lives and building futures for over 25 years.
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge variant="secondary" className="mb-4">Principal's Message</Badge>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Welcome to Ober Boys High School
+              </h1>
+              <div className="bg-white/50 p-6 rounded-lg shadow-sm mb-6">
+                <Quote className="h-8 w-8 text-primary mb-4" />
+                <p className="text-lg text-muted-foreground leading-relaxed italic">
+                  "At Ober Boys High School, we believe that every young man has the potential to achieve greatness. 
+                  Our mission is to provide not just academic excellence, but to nurture character, leadership, and 
+                  a sense of responsibility that will serve our students throughout their lives. We are committed 
+                  to creating an environment where students can discover their talents, develop their skills, and 
+                  prepare for a successful future."
+                </p>
+              </div>
+              <div className="flex items-center space-x-4">
+                <div>
+                  <h3 className="text-xl font-bold text-foreground">Mr. David Otieno</h3>
+                  <p className="text-primary font-semibold">Principal</p>
+                  <p className="text-sm text-muted-foreground">M.Ed Educational Leadership</p>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <motion.div
+                className="relative overflow-hidden rounded-lg shadow-school"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Principal Mr. David Otieno"
+                  className="w-full h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white">
+                  <p className="text-sm font-medium">Mr. David Otieno</p>
+                  <p className="text-xs opacity-90">Principal - Ober Boys High School</p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* School History - One Paragraph */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Our History</h2>
+          </div>
+          <div className="bg-background rounded-2xl p-8 shadow-school max-w-4xl mx-auto">
+            <p className="text-lg text-muted-foreground leading-relaxed text-center">
+              Established in 1994 under the Ministry of Education, Ober Boys High School began as a small institution 
+              with 120 students and 8 teaching staff in Homa Bay County. Over the past three decades, we have grown 
+              into one of Kenya's most respected boys' schools, now accommodating over 1,200 students with 45 qualified 
+              teachers. Our journey has been marked by consistent academic excellence, character development, and the 
+              production of outstanding graduates who excel in universities and professional careers across Kenya and 
+              internationally. Today, we maintain a 98% KCSE pass rate and continue to innovate with modern facilities 
+              including our STEM Innovation Center, while staying true to our founding values of discipline, integrity, 
+              and service to the community.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mission, Vision, Values - Detailed */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <Card className="shadow-school transition-school hover:shadow-strong">
-              <CardHeader className="text-center pb-4">
-                <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Target className="h-10 w-10 text-primary" />
-                </div>
-                <CardTitle className="text-2xl text-primary">Our Mission</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground leading-relaxed">
-                  To provide quality, holistic education that nurtures intellectual, moral, and social development 
-                  of our students, preparing them to be responsible citizens and leaders who can contribute 
-                  meaningfully to society through excellence in academics, character, and service.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-school transition-school hover:shadow-strong">
-              <CardHeader className="text-center pb-4">
-                <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Eye className="h-10 w-10 text-primary" />
-                </div>
-                <CardTitle className="text-2xl text-primary">Our Vision</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground leading-relaxed">
-                  To be a leading institution in secondary education within Kenya and the East African region, 
-                  recognized for academic excellence, character development, innovation in teaching, and 
-                  producing well-rounded graduates ready for higher education and leadership roles.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-school transition-school hover:shadow-strong">
-              <CardHeader className="text-center pb-4">
-                <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-10 w-10 text-primary" />
-                </div>
-                <CardTitle className="text-2xl text-primary">Our Values</CardTitle>
-              </CardHeader>
-              <CardContent className="text-center">
-                <div className="space-y-2 text-muted-foreground">
-                  <p><strong className="text-foreground">Excellence:</strong> Striving for the highest standards</p>
-                  <p><strong className="text-foreground">Integrity:</strong> Honesty and moral uprightness</p>
-                  <p><strong className="text-foreground">Respect:</strong> Valuing diversity and dignity</p>
-                  <p><strong className="text-foreground">Responsibility:</strong> Accountability in all actions</p>
-                  <p><strong className="text-foreground">Innovation:</strong> Embracing creative solutions</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Comprehensive School History */}
+      {/* Programs We Offer - Alternating Layout */}
       <section className="py-20 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Complete History</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Programs We Offer</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A detailed journey of growth, achievement, and continuous improvement over three decades
+              Comprehensive educational programs designed to develop well-rounded individuals
             </p>
           </div>
 
-          <div className="bg-background rounded-2xl p-8 shadow-school">
-            {/* Timeline */}
-            <div className="space-y-12">
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/4">
-                  <div className="bg-primary/10 rounded-lg p-6 text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">1994</div>
-                    <div className="text-sm text-muted-foreground font-medium">Foundation</div>
+          <div className="space-y-20">
+            {programs.map((program, index) => (
+              <motion.div
+                key={index}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                  index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+                }`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{program.title}</h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                    {program.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {program.subjects.map((subject, subIndex) => (
+                      <Badge key={subIndex} variant="secondary" className="text-sm">
+                        {subject}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
-                <div className="md:w-3/4">
-                  <h4 className="text-2xl font-bold mb-4 text-foreground">Establishment</h4>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Ober Boys High School was established under the Ministry of Education, Republic of Kenya, 
-                    as a public secondary school. The school began with 120 students and 8 teaching staff, 
-                    committed to providing quality education to young men in the Homa Bay region. The initial 
-                    infrastructure included basic classrooms, a small library, and essential administrative offices.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    The founding principal, Mr. James Ochieng, established the school's core values of 
-                    academic excellence, discipline, and character development that continue to guide us today.
-                  </p>
+                <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+                  <motion.div
+                    className="relative overflow-hidden rounded-lg shadow-school"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <img
+                      src={program.image}
+                      alt={program.title}
+                      className="w-full h-80 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  </motion.div>
                 </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/4">
-                  <div className="bg-primary/10 rounded-lg p-6 text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">2000-2010</div>
-                    <div className="text-sm text-muted-foreground font-medium">Growth Phase</div>
-                  </div>
-                </div>
-                <div className="md:w-3/4">
-                  <h4 className="text-2xl font-bold mb-4 text-foreground">Expansion & Recognition</h4>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    The school expanded its facilities and student population significantly. We received recognition 
-                    from the Ministry of Education for academic excellence and discipline. This period saw the 
-                    construction of additional dormitories, expansion of the library, and establishment of strong 
-                    partnerships with local communities and educational institutions.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Our first computer laboratory was established in 2005, marking our entry into digital education. 
-                    The school also introduced co-curricular activities including sports, music, and debate clubs.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/4">
-                  <div className="bg-primary/10 rounded-lg p-6 text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">2010-2020</div>
-                    <div className="text-sm text-muted-foreground font-medium">Modernization</div>
-                  </div>
-                </div>
-                <div className="md:w-3/4">
-                  <h4 className="text-2xl font-bold mb-4 text-foreground">Infrastructure Development</h4>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Major infrastructure upgrades including modern laboratories, library expansion, and sports facilities. 
-                    Introduction of computer studies and enhanced co-curricular programs. Consistent top performance 
-                    in KCSE examinations with pass rates exceeding 90%.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    The school established partnerships with universities and international organizations, 
-                    providing students with opportunities for scholarships and exchange programs. Our alumni 
-                    began making significant contributions in various professional fields across Kenya and internationally.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/4">
-                  <div className="bg-primary/10 rounded-lg p-6 text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">2020-Present</div>
-                    <div className="text-sm text-muted-foreground font-medium">Excellence Era</div>
-                  </div>
-                </div>
-                <div className="md:w-3/4">
-                  <h4 className="text-2xl font-bold mb-4 text-foreground">Current Status</h4>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Today, Ober Boys High School accommodates over 1,200 students with 45 qualified teachers. 
-                    The school continues to maintain high academic standards, producing graduates who excel in 
-                    universities and professional careers across Kenya and internationally.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Recent achievements include the establishment of a STEM Innovation Center, implementation 
-                    of digital learning platforms, and consistent 98% KCSE pass rates. Our alumni network 
-                    continues to grow, with graduates in medicine, engineering, law, business, and other 
-                    professional fields.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Key Achievements */}
-            <div className="mt-16 pt-8 border-t border-border">
-              <h4 className="text-2xl font-bold mb-8 text-primary text-center">Key Achievements & Milestones</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Trophy className="h-10 w-10 text-primary" />
-                  </div>
-                  <h5 className="text-lg font-semibold mb-3">Academic Excellence</h5>
-                  <p className="text-sm text-muted-foreground mb-2">Consistently high KCSE performance</p>
-                  <p className="text-sm text-muted-foreground">98% pass rate in 2024</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-10 w-10 text-primary" />
-                  </div>
-                  <h5 className="text-lg font-semibold mb-3">Alumni Success</h5>
-                  <p className="text-sm text-muted-foreground mb-2">Graduates in medicine, engineering, law</p>
-                  <p className="text-sm text-muted-foreground">Over 500 university graduates</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Award className="h-10 w-10 text-primary" />
-                  </div>
-                  <h5 className="text-lg font-semibold mb-3">Ministry Recognition</h5>
-                  <p className="text-sm text-muted-foreground mb-2">Multiple awards for excellence</p>
-                  <p className="text-sm text-muted-foreground">Top 5 schools in Homa Bay County</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership Team */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Leadership Team</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Experienced educators dedicated to student success and institutional excellence
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {leadership.map((leader, index) => (
-              <Card key={index} className="shadow-school transition-school hover:shadow-strong text-center">
-                <CardContent className="p-8">
-                  <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-10 w-10 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{leader.name}</h3>
-                  <p className="text-primary font-semibold mb-2">{leader.position}</p>
-                  <p className="text-sm text-muted-foreground mb-1">{leader.qualification}</p>
-                  <p className="text-sm text-muted-foreground">{leader.experience}</p>
-                </CardContent>
-              </Card>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Facilities & Infrastructure */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Q&A Section */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Facilities</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Modern infrastructure designed to support comprehensive learning and development
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-muted-foreground">
+              Common questions about Ober Boys High School
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="shadow-school text-center">
-              <CardContent className="p-6">
-                <BookOpen className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h4 className="font-semibold mb-2">Modern Classrooms</h4>
-                <p className="text-sm text-muted-foreground">32 well-equipped classrooms with modern furniture and teaching aids</p>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-school text-center">
-              <CardContent className="p-6">
-                <Trophy className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h4 className="font-semibold mb-2">Science Labs</h4>
-                <p className="text-sm text-muted-foreground">Fully equipped Physics, Chemistry, and Biology laboratories</p>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-school text-center">
-              <CardContent className="p-6">
-                <Award className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h4 className="font-semibold mb-2">Library</h4>
-                <p className="text-sm text-muted-foreground">Comprehensive library with over 5,000 books and digital resources</p>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-school text-center">
-              <CardContent className="p-6">
-                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h4 className="font-semibold mb-2">Sports Facilities</h4>
-                <p className="text-sm text-muted-foreground">Football field, basketball court, and athletics track</p>
-              </CardContent>
-            </Card>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="shadow-school">
+                <CardContent className="p-0">
+                  <button
+                    className="w-full p-6 text-left flex items-center justify-between hover:bg-secondary/50 transition-colors"
+                    onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                  >
+                    <h3 className="text-lg font-semibold text-foreground pr-4">{faq.question}</h3>
+                    <ChevronDown 
+                      className={`h-5 w-5 text-primary transition-transform ${
+                        openFAQ === index ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  {openFAQ === index && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6">
+                        <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
