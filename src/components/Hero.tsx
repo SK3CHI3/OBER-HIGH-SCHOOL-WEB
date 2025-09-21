@@ -43,7 +43,7 @@ const Hero = () => {
   }, [heroImages]);
 
   return (
-    <section id="home" className="relative h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative h-screen w-full flex items-center overflow-hidden" style={{ minHeight: '100vh' }}>
       {/* Dynamic Background Images */}
       <div className="absolute inset-0">
         {heroImages.map((image, index) => (
@@ -61,7 +61,7 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-32">
             <motion.div 
               className="text-center text-white"
               initial={{ opacity: 0, y: 50 }}

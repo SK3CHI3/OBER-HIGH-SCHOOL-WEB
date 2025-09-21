@@ -21,22 +21,10 @@ const Footer = () => {
                 <div className="text-sm opacity-90">Excellence in Education</div>
               </div>
             </div>
-            <p className="text-sm opacity-90 mb-4 max-w-md">
+            <p className="text-sm opacity-90 mb-6 max-w-md">
               Empowering Young Men Through Academic Excellence, Character Development, and Leadership Training. 
               Premier boys' high school in Kenya since 1994.
             </p>
-            <div className="mb-6 p-4 bg-white/10 rounded-lg">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-                <div>
-                  <div className="font-semibold mb-1">School Code</div>
-                  <div className="opacity-90">12345678</div>
-                </div>
-                <div>
-                  <div className="font-semibold mb-1">Registration No.</div>
-                  <div className="opacity-90">MOE/123/456/789</div>
-                </div>
-              </div>
-            </div>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-white/20">
                 <Facebook className="h-5 w-5" />
