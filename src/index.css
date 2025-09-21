@@ -16,13 +16,13 @@ School colors: Forest Green (#2E7D32), Charcoal Grey, Clean White
     
     /* System Colors */
     --background: 0 0% 100%;          /* Pure White */
-    --foreground: 0 0% 26%;           /* Charcoal Grey */
+    --foreground: 0 0% 15%;           /* Dark Charcoal Grey - Better Contrast */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 26%;
+    --card-foreground: 0 0% 15%;      /* Dark Charcoal Grey - Better Contrast */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 26%;
+    --popover-foreground: 0 0% 15%;      /* Dark Charcoal Grey - Better Contrast */
 
     --primary: 150 65% 32%;           /* School Green */
     --primary-foreground: 0 0% 100%;  /* White text on green */
@@ -31,7 +31,7 @@ School colors: Forest Green (#2E7D32), Charcoal Grey, Clean White
     --secondary-foreground: 150 65% 32%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 64%;
+    --muted-foreground: 0 0% 45%;      /* Darker grey for better contrast */
 
     --accent: 150 45% 55%;            /* Light Green */
     --accent-foreground: 0 0% 100%;
@@ -46,8 +46,8 @@ School colors: Forest Green (#2E7D32), Charcoal Grey, Clean White
     /* Custom Design Tokens */
     --hero-gradient: linear-gradient(135deg, hsl(150 65% 32%) 0%, hsl(150 45% 40%) 100%);
     --success-green: 150 65% 32%;
-    --text-emphasis: 0 0% 20%;
-    --text-subtle: 0 0% 50%;
+    --text-emphasis: 0 0% 12%;         /* Even darker for emphasis */
+    --text-subtle: 0 0% 40%;           /* Darker subtle text */
     
     /* Shadows */
     --shadow-soft: 0 2px 8px hsl(150 65% 32% / 0.08);
@@ -80,22 +80,22 @@ School colors: Forest Green (#2E7D32), Charcoal Grey, Clean White
   .dark {
     /* Dark theme maintains school branding */
     --background: 0 0% 8%;
-    --foreground: 0 0% 95%;
+    --foreground: 0 0% 98%;           /* Brighter white for better contrast */
 
     --card: 0 0% 12%;
-    --card-foreground: 0 0% 95%;
+    --card-foreground: 0 0% 98%;      /* Brighter white for better contrast */
 
     --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover-foreground: 0 0% 98%;   /* Brighter white for better contrast */
 
     --primary: 150 45% 55%;           /* Lighter green for dark mode */
     --primary-foreground: 0 0% 8%;
 
     --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary-foreground: 0 0% 98%;  /* Brighter white for better contrast */
 
     --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 65%;
+    --muted-foreground: 0 0% 75%;      /* Brighter grey for better contrast */
 
     --accent: 150 45% 55%;
     --accent-foreground: 0 0% 8%;
