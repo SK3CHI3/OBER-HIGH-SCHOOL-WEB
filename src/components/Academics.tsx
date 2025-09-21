@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Calculator, Microscope, Globe, Palette, Music, Trophy, Users, Calendar, Download } from "lucide-react";
+import { BookOpen, Calculator, Microscope, Globe, Palette, Music, Trophy, Users, Calendar, Download, Atom, MapPin, Heart, Laptop, Paintbrush, Volume2, Calculator as CalcIcon, Beaker, Dna, BookMarked, Languages, Building2, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import DataVisualization from "./DataVisualization";
@@ -12,14 +12,52 @@ const Academics = () => {
     threshold: 0.1
   });
 
-  const subjects = [
-    { name: "Mathematics", icon: Calculator, description: "Pure and Applied Mathematics" },
-    { name: "Sciences", icon: Microscope, description: "Physics, Chemistry, Biology" },
-    { name: "Languages", icon: BookOpen, description: "English, Kiswahili" },
-    { name: "Humanities", icon: Globe, description: "History, Geography, CRE" },
-    { name: "Business Studies", icon: Users, description: "Commerce, Accounting, Economics" },
-    { name: "Creative Arts", icon: Palette, description: "Art & Design" },
-    { name: "Technical", icon: Music, description: "Computer Studies" },
+  const subjectCategories = [
+    {
+      category: "Core Sciences",
+      color: "bg-blue-50 border-blue-200 text-blue-800",
+      subjects: [
+        { name: "Mathematics", icon: Calculator, description: "Pure Mathematics, Applied Mathematics, Statistics" },
+        { name: "Physics", icon: Atom, description: "Mechanics, Thermodynamics, Electricity, Optics" },
+        { name: "Chemistry", icon: Beaker, description: "Organic, Inorganic, Physical Chemistry" },
+        { name: "Biology", icon: Dna, description: "Cell Biology, Genetics, Ecology, Human Biology" }
+      ]
+    },
+    {
+      category: "Languages",
+      color: "bg-green-50 border-green-200 text-green-800",
+      subjects: [
+        { name: "English", icon: BookOpen, description: "Literature, Grammar, Composition, Oral Skills" },
+        { name: "Kiswahili", icon: Languages, description: "Lugha, Fasihi, Uandishi, Mazungumzo" }
+      ]
+    },
+    {
+      category: "Humanities & Social Sciences",
+      color: "bg-purple-50 border-purple-200 text-purple-800",
+      subjects: [
+        { name: "History & Government", icon: BookMarked, description: "Kenyan History, World History, Government" },
+        { name: "Geography", icon: MapPin, description: "Physical Geography, Human Geography, Map Work" },
+        { name: "Christian Religious Education", icon: Heart, description: "Bible Studies, Christian Ethics, Church History" }
+      ]
+    },
+    {
+      category: "Business & Technical",
+      color: "bg-orange-50 border-orange-200 text-orange-800",
+      subjects: [
+        { name: "Business Studies", icon: Building2, description: "Commerce, Accounting, Economics, Entrepreneurship" },
+        { name: "Computer Studies", icon: Laptop, description: "Programming, Database Management, Web Design" },
+        { name: "Agriculture", icon: Globe, description: "Crop Production, Animal Husbandry, Farm Management" }
+      ]
+    },
+    {
+      category: "Creative & Performing Arts",
+      color: "bg-pink-50 border-pink-200 text-pink-800",
+      subjects: [
+        { name: "Art & Design", icon: Paintbrush, description: "Drawing, Painting, Sculpture, Design" },
+        { name: "Music", icon: Volume2, description: "Theory, Performance, Composition, History" },
+        { name: "Home Science", icon: Users, description: "Food & Nutrition, Clothing, Child Development" }
+      ]
+    }
   ];
 
       const achievements = [
@@ -43,43 +81,59 @@ const Academics = () => {
           </p>
         </div>
 
-        {/* Subjects Grid */}
+        {/* Subject Categories */}
         <motion.div 
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16"
+          className="space-y-12 mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
-          {subjects.map((subject, index) => (
+          {subjectCategories.map((category, categoryIndex) => (
             <motion.div
-              key={subject.name}
+              key={category.category}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
             >
-              <Card className="shadow-school transition-school hover:shadow-strong h-full border-l-4 border-l-primary/30 hover:border-l-primary">
-                <CardContent className="p-6">
-                  <motion.div 
-                    className="text-center"
-                    whileHover={{ y: -2 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-foreground mb-2">{category.category}</h3>
+                <div className="w-20 h-1 bg-primary rounded-full"></div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {category.subjects.map((subject, subjectIndex) => (
+                  <motion.div
+                    key={subject.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: (categoryIndex * 0.1) + (subjectIndex * 0.05) }}
+                    whileHover={{ scale: 1.02, y: -5 }}
                   >
-                    <motion.div 
-                      className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <subject.icon className="h-8 w-8 text-primary" />
-                    </motion.div>
-                    <div>
-                      <h3 className="text-lg font-semibold mb-2">{subject.name}</h3>
-                      <p className="text-sm text-muted-foreground">{subject.description}</p>
-                    </div>
+                    <Card className="shadow-school transition-school hover:shadow-strong h-full border-l-4 border-l-primary/30 hover:border-l-primary group">
+                      <CardContent className="p-6">
+                        <motion.div 
+                          className="text-center"
+                          whileHover={{ y: -2 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <motion.div 
+                            className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors"
+                            whileHover={{ rotate: 360, scale: 1.1 }}
+                            transition={{ duration: 0.6 }}
+                          >
+                            <subject.icon className="h-8 w-8 text-primary" />
+                          </motion.div>
+                          <div>
+                            <h4 className="text-lg font-semibold mb-2 text-foreground">{subject.name}</h4>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{subject.description}</p>
+                          </div>
+                        </motion.div>
+                      </CardContent>
+                    </Card>
                   </motion.div>
-                </CardContent>
-              </Card>
+                ))}
+              </div>
             </motion.div>
           ))}
         </motion.div>
