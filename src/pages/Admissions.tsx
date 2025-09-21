@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, FileText, Calendar, DollarSign, User, Phone, Mail, Clock, GraduationCap, Users, Wifi, Shield } from "lucide-react";
+import { CheckCircle, FileText, Calendar, DollarSign, User, Phone, Mail, Clock, GraduationCap, Users, Wifi, Shield, Eye, Download } from "lucide-react";
 
 const Admissions = () => {
   const requirements = [
@@ -151,34 +151,105 @@ const Admissions = () => {
             </p>
           </div>
 
-          <Card className="shadow-school max-w-4xl mx-auto">
-            <CardHeader>
-              <CardTitle className="text-center text-2xl text-primary flex items-center justify-center">
-                <DollarSign className="h-6 w-6 mr-2" />
-                Academic Year 2025 Fees
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                {feeStructure.map((fee, index) => (
-                  <div key={index} className="flex justify-between items-center p-4 bg-secondary/30 rounded-lg">
-                    <span className="font-medium">{fee.item}</span>
-                    <Badge variant="secondary" className="text-lg">{fee.amount}</Badge>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Fee Structure Summary */}
+            <Card className="shadow-school">
+              <CardHeader>
+                <CardTitle className="text-center text-2xl text-primary flex items-center justify-center">
+                  <DollarSign className="h-6 w-6 mr-2" />
+                  Academic Year 2025 Fees
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {feeStructure.map((fee, index) => (
+                    <div key={index} className="flex justify-between items-center p-4 bg-secondary/30 rounded-lg">
+                      <span className="font-medium">{fee.item}</span>
+                      <Badge variant="secondary" className="text-lg">{fee.amount}</Badge>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-6 p-4 bg-primary/5 rounded-lg border-l-4 border-l-primary">
+                  <h4 className="font-semibold text-primary mb-2">Payment Information</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Fees are payable at the beginning of each term</li>
+                    <li>• 10% discount available for annual payments</li>
+                    <li>• Scholarships available for exceptional students</li>
+                    <li>• Payment plans can be arranged for qualified families</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* PDF Download/View Section */}
+            <Card className="shadow-school bg-gradient-to-br from-primary/5 to-accent/5">
+              <CardHeader className="text-center">
+                <div className="bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FileText className="h-10 w-10 text-primary" />
+                </div>
+                <CardTitle className="text-2xl text-primary">Complete Fee Structure</CardTitle>
+                <p className="text-muted-foreground">
+                  Download or view the detailed fee structure document with all terms, payment schedules, and additional information.
+                </p>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="text-center">
+                  <div className="bg-white/50 p-6 rounded-lg border-2 border-dashed border-primary/30 mb-4">
+                    <FileText className="h-16 w-16 text-primary mx-auto mb-3" />
+                    <h3 className="font-semibold text-lg mb-2">Fee Structure 2025.pdf</h3>
+                    <p className="text-sm text-muted-foreground">Complete fee breakdown and payment terms</p>
+                    <p className="text-xs text-muted-foreground mt-2">File size: 2.1 MB</p>
                   </div>
-                ))}
-              </div>
-              
-              <div className="mt-6 p-4 bg-primary/5 rounded-lg border-l-4 border-l-primary">
-                <h4 className="font-semibold text-primary mb-2">Payment Information</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Fees are payable at the beginning of each term</li>
-                  <li>• 10% discount available for annual payments</li>
-                  <li>• Scholarships available for exceptional students</li>
-                  <li>• Payment plans can be arranged for qualified families</li>
-                </ul>
-              </div>
-            </CardContent>
-          </Card>
+                </div>
+
+                <div className="space-y-3">
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-primary hover:bg-primary/90"
+                    onClick={() => {
+                      // In a real app, this would open the PDF
+                      window.open('/documents/fee-structure-2025.pdf', '_blank');
+                    }}
+                  >
+                    <Eye className="h-5 w-5 mr-2" />
+                    View PDF Online
+                  </Button>
+                  
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                    onClick={() => {
+                      // In a real app, this would download the PDF
+                      const link = document.createElement('a');
+                      link.href = '/documents/fee-structure-2025.pdf';
+                      link.download = 'Ober-Boys-Fee-Structure-2025.pdf';
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
+                  >
+                    <Download className="h-5 w-5 mr-2" />
+                    Download PDF
+                  </Button>
+                </div>
+
+                <div className="bg-primary/10 p-4 rounded-lg">
+                  <h4 className="font-semibold text-primary mb-2 flex items-center">
+                    <Clock className="h-4 w-4 mr-2" />
+                    Important Notes
+                  </h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Fees are subject to Ministry of Education guidelines</li>
+                    <li>• Payment schedules are outlined in the PDF</li>
+                    <li>• Contact admissions for payment plan options</li>
+                    <li>• All fees are in Kenyan Shillings (KSh)</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 

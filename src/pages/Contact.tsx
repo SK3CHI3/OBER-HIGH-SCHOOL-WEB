@@ -66,7 +66,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Information */}
             <div className="space-y-6">
-              {/* Visit Our School */}
+              {/* Address - Compressed Side by Side */}
               <Card className="shadow-school">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-xl text-primary flex items-center">
@@ -74,75 +74,83 @@ const Contact = () => {
                     Visit Our School
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div>
-                    <h4 className="font-semibold text-sm mb-1">Physical Address:</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Ober Boys High School<br />
-                      Along Homa Bay-Mbita Road<br />
-                      Homa Bay County, Kenya
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-sm mb-1">Postal Address:</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      P.O. Box 123<br />
-                      Homa Bay - 40300<br />
-                      Kenya
-                    </p>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-sm mb-2 text-primary">Physical Address:</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Ober Boys High School<br />
+                        Along Homa Bay-Mbita Road<br />
+                        Homa Bay County, Kenya
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sm mb-2 text-primary">Postal Address:</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        P.O. Box 123<br />
+                        Homa Bay - 40300<br />
+                        Kenya
+                      </p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
 
-              {/* Call Us */}
+              {/* Call & Email - Combined in One Card */}
               <Card className="shadow-school">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-xl text-primary flex items-center">
-                    <Phone className="h-5 w-5 mr-2" />
-                    Call Us
-                  </CardTitle>
+                  <CardTitle className="text-xl text-primary">Contact Information</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <a href="tel:+254201234567" className="flex items-start space-x-3 hover:text-primary transition-colors">
-                    <Phone className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Phone Numbers */}
                     <div>
-                      <p className="font-medium text-sm">Main Office</p>
-                      <p className="text-sm text-muted-foreground">+254 20 123 4567</p>
+                      <div className="flex items-center mb-4">
+                        <Phone className="h-5 w-5 text-primary mr-2" />
+                        <h4 className="font-semibold text-primary">Call Us</h4>
+                      </div>
+                      <div className="space-y-3">
+                        <a href="tel:+254201234567" className="flex items-start space-x-3 hover:text-primary transition-colors">
+                          <Phone className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-sm">Main Office</p>
+                            <p className="text-sm text-muted-foreground">+254 20 123 4567</p>
+                          </div>
+                        </a>
+                        <a href="tel:+254201234568" className="flex items-start space-x-3 hover:text-primary transition-colors">
+                          <Phone className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-sm">Admissions</p>
+                            <p className="text-sm text-muted-foreground">+254 20 123 4568</p>
+                          </div>
+                        </a>
+                      </div>
                     </div>
-                  </a>
-                  <a href="tel:+254201234568" className="flex items-start space-x-3 hover:text-primary transition-colors">
-                    <Phone className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-sm">Admissions</p>
-                      <p className="text-sm text-muted-foreground">+254 20 123 4568</p>
-                    </div>
-                  </a>
-                </CardContent>
-              </Card>
 
-              {/* Email Us */}
-              <Card className="shadow-school">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-xl text-primary flex items-center">
-                    <Mail className="h-5 w-5 mr-2" />
-                    Email Us
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <a href="mailto:info@oberboyshigh.ac.ke" className="flex items-start space-x-3 hover:text-primary transition-colors">
-                    <Mail className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
+                    {/* Email Addresses */}
                     <div>
-                      <p className="font-medium text-sm">General Inquiries</p>
-                      <p className="text-sm text-muted-foreground break-all">info@oberboyshigh.ac.ke</p>
+                      <div className="flex items-center mb-4">
+                        <Mail className="h-5 w-5 text-primary mr-2" />
+                        <h4 className="font-semibold text-primary">Email Us</h4>
+                      </div>
+                      <div className="space-y-3">
+                        <a href="mailto:info@oberboyshigh.ac.ke" className="flex items-start space-x-3 hover:text-primary transition-colors">
+                          <Mail className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-sm">General Inquiries</p>
+                            <p className="text-sm text-muted-foreground break-all">info@oberboyshigh.ac.ke</p>
+                          </div>
+                        </a>
+                        <a href="mailto:admissions@oberboyshigh.ac.ke" className="flex items-start space-x-3 hover:text-primary transition-colors">
+                          <Mail className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
+                          <div>
+                            <p className="font-medium text-sm">Admissions</p>
+                            <p className="text-sm text-muted-foreground break-all">admissions@oberboyshigh.ac.ke</p>
+                          </div>
+                        </a>
+                      </div>
                     </div>
-                  </a>
-                  <a href="mailto:admissions@oberboyshigh.ac.ke" className="flex items-start space-x-3 hover:text-primary transition-colors">
-                    <Mail className="h-4 w-4 text-muted-foreground mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium text-sm">Admissions</p>
-                      <p className="text-sm text-muted-foreground break-all">admissions@oberboyshigh.ac.ke</p>
-                    </div>
-                  </a>
+                  </div>
                 </CardContent>
               </Card>
 

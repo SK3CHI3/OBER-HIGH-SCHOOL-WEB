@@ -155,27 +155,51 @@ const Academics = () => {
   const facilities = [
     {
       name: "Science Laboratories",
-      description: "Fully equipped Physics, Chemistry, and Biology labs with modern equipment",
-      features: ["Modern equipment", "Safety protocols", "Research facilities", "Digital microscopes"],
-      status: "Operational"
+      description: "Our state-of-the-art science laboratories provide students with hands-on experience in Physics, Chemistry, and Biology. Equipped with modern equipment and safety protocols, these labs foster scientific inquiry and research skills essential for university preparation.",
+      features: ["Modern equipment", "Safety protocols", "Research facilities", "Digital microscopes", "Chemistry apparatus", "Physics instruments"],
+      status: "Operational",
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      capacity: "40 students per lab"
     },
     {
       name: "Computer Laboratory",
-      description: "State-of-the-art computer lab with 40 workstations and high-speed internet",
-      features: ["40 computers", "High-speed internet", "Programming software", "Multimedia capabilities"],
-      status: "Operational"
+      description: "Our cutting-edge computer laboratory features 40 high-performance workstations with high-speed internet connectivity. Students learn programming, digital literacy, and modern technology skills that prepare them for the digital future.",
+      features: ["40 computers", "High-speed internet", "Programming software", "Multimedia capabilities", "3D printing", "Coding platforms"],
+      status: "Operational",
+      image: "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      capacity: "40 students"
     },
     {
       name: "Library & Resource Center",
-      description: "Comprehensive library with over 5,000 books and digital resources",
-      features: ["5,000+ books", "Digital resources", "Study areas", "Research databases"],
-      status: "Operational"
+      description: "Our comprehensive library houses over 5,000 books, digital resources, and quiet study areas. It serves as a hub for research, academic support, and intellectual growth, providing students with access to vast knowledge resources.",
+      features: ["5,000+ books", "Digital resources", "Study areas", "Research databases", "E-books", "Quiet zones"],
+      status: "Operational",
+      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      capacity: "100 students"
     },
     {
       name: "Sports Complex",
-      description: "Multi-purpose sports facilities for various athletic activities",
-      features: ["Football field", "Basketball court", "Athletics track", "Gymnasium"],
-      status: "Operational"
+      description: "Our multi-purpose sports complex includes a football field, basketball court, athletics track, and gymnasium. These facilities promote physical fitness, teamwork, and healthy competition while developing students' athletic abilities.",
+      features: ["Football field", "Basketball court", "Athletics track", "Gymnasium", "Changing rooms", "Equipment storage"],
+      status: "Operational",
+      image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      capacity: "200+ students"
+    },
+    {
+      name: "STEM Innovation Center",
+      description: "Our newly established STEM Innovation Center features advanced robotics, 3D printing, AI labs, and innovation spaces. This cutting-edge facility prepares students for careers in science, technology, engineering, and mathematics.",
+      features: ["Robotics lab", "3D printing", "AI workstations", "Innovation spaces", "Prototyping tools", "Collaboration areas"],
+      status: "Operational",
+      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      capacity: "30 students"
+    },
+    {
+      name: "Dining Hall & Kitchen",
+      description: "Our modern dining hall provides nutritious meals for all students in a clean, comfortable environment. The facility includes a fully equipped kitchen, serving areas, and seating for the entire student body.",
+      features: ["Modern kitchen", "Serving areas", "Student seating", "Nutrition planning", "Clean environment", "Meal variety"],
+      status: "Operational",
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      capacity: "1,200 students"
     }
   ];
 
@@ -399,41 +423,85 @@ const Academics = () => {
 
             {/* Facilities Tab */}
             <TabsContent value="facilities" className="mt-8">
-              <div className="space-y-8">
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-foreground mb-4">Academic Facilities</h2>
-                  <p className="text-lg text-muted-foreground">
-              Modern infrastructure designed to support effective teaching and learning
-            </p>
-          </div>
+              <div className="space-y-16">
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl font-bold text-foreground mb-4">Our Facilities</h2>
+                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    Modern infrastructure designed to support effective teaching and learning
+                  </p>
+                </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {facilities.map((facility, index) => (
-              <Card key={index} className="shadow-school transition-school hover:shadow-strong">
-                <CardHeader>
-                        <div className="flex items-center justify-between">
-                          <CardTitle className="text-xl text-primary">{facility.name}</CardTitle>
-                          <Badge variant="outline">{facility.status}</Badge>
+                <div className="space-y-20">
+                  {facilities.map((facility, index) => (
+                    <motion.div
+                      key={index}
+                      className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                        index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+                      }`}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                        <div className="space-y-6">
+                          <div className="flex items-center justify-between">
+                            <h3 className="text-2xl md:text-3xl font-bold text-foreground">{facility.name}</h3>
+                            <Badge variant="outline" className="text-primary border-primary/20">
+                              {facility.status}
+                            </Badge>
+                          </div>
+                          
+                          <p className="text-lg text-muted-foreground leading-relaxed">
+                            {facility.description}
+                          </p>
+                          
+                          <div className="space-y-4">
+                            <div>
+                              <h4 className="font-semibold text-primary mb-3">Key Features:</h4>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                {facility.features.map((feature, featureIndex) => (
+                                  <div key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                                    <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
+                                    {feature}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            <div className="bg-primary/5 p-4 rounded-lg">
+                              <div className="flex items-center text-sm">
+                                <Users className="h-4 w-4 text-primary mr-2" />
+                                <span className="font-medium text-primary">Capacity:</span>
+                                <span className="ml-2 text-muted-foreground">{facility.capacity}</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{facility.description}</p>
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-sm">Features:</h4>
-                    <ul className="space-y-1">
-                      {facility.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="text-sm text-muted-foreground flex items-center">
-                          <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+                      </div>
+                      
+                      <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+                        <motion.div
+                          className="relative overflow-hidden rounded-lg shadow-school"
+                          whileHover={{ scale: 1.02 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <img
+                            src={facility.image}
+                            alt={facility.name}
+                            className="w-full h-80 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                          <div className="absolute bottom-4 left-4 text-white">
+                            <p className="text-sm font-medium">{facility.name}</p>
+                            <p className="text-xs opacity-90">{facility.capacity}</p>
+                          </div>
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </TabsContent>
 
             {/* Co-curricular Activities Tab */}
