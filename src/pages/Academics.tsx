@@ -506,78 +506,119 @@ const Academics = () => {
 
             {/* Co-curricular Activities Tab */}
             <TabsContent value="activities" className="mt-8">
-              <div className="space-y-8">
-                <div className="text-center mb-8">
+              <div className="space-y-16">
+                <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold text-foreground mb-4">Co-curricular Programs</h2>
-                  <p className="text-lg text-muted-foreground">
-              Developing well-rounded students through diverse extracurricular programs and activities
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="shadow-school text-center">
-              <CardContent className="p-8">
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Award className="h-8 w-8 text-primary" />
+                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    Developing well-rounded students through diverse extracurricular programs and activities
+                  </p>
                 </div>
-                <h4 className="font-semibold mb-3">Sports & Athletics</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>Football Team</li>
-                  <li>Basketball</li>
-                  <li>Athletics Track</li>
-                  <li>Table Tennis</li>
-                  <li>Volleyball</li>
-                </ul>
-              </CardContent>
-            </Card>
 
-            <Card className="shadow-school text-center">
-              <CardContent className="p-8">
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Music className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="font-semibold mb-3">Music & Arts</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>School Choir</li>
-                  <li>Drama Club</li>
-                  <li>Traditional Dance</li>
-                  <li>Art Club</li>
-                  <li>School Band</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-school text-center">
-              <CardContent className="p-8">
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="font-semibold mb-3">Academic Clubs</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>Science Club</li>
-                  <li>Mathematics Society</li>
-                  <li>Debate Team</li>
-                  <li>Quiz Club</li>
-                  <li>Literature Society</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-school text-center">
-              <CardContent className="p-8">
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Target className="h-8 w-8 text-primary" />
-                </div>
-                <h4 className="font-semibold mb-3">Special Programs</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>Environmental Club</li>
-                  <li>Leadership Training</li>
-                  <li>Community Service</li>
-                  <li>Peer Counseling</li>
-                  <li>Career Guidance</li>
-                </ul>
-              </CardContent>
-            </Card>
+                <div className="space-y-20">
+                  {[
+                    {
+                      name: "Sports & Athletics",
+                      description: "Our comprehensive sports program promotes physical fitness, teamwork, and healthy competition. Students participate in various athletic activities that build character, discipline, and leadership skills while maintaining academic excellence.",
+                      activities: ["Football Team", "Basketball", "Athletics Track", "Table Tennis", "Volleyball", "Swimming", "Rugby", "Tennis"],
+                      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                      icon: Award,
+                      achievements: "Regional Champions 2024"
+                    },
+                    {
+                      name: "Music & Arts",
+                      description: "Our vibrant arts program nurtures creativity and self-expression through music, drama, and visual arts. Students develop artistic talents, confidence, and cultural appreciation while showcasing their creativity in various performances and exhibitions.",
+                      activities: ["School Choir", "Drama Club", "Traditional Dance", "Art Club", "School Band", "Photography", "Creative Writing", "Cultural Performances"],
+                      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                      icon: Music,
+                      achievements: "National Arts Festival Winners"
+                    },
+                    {
+                      name: "Academic Clubs",
+                      description: "Our academic clubs provide students with opportunities to explore subjects beyond the classroom, engage in intellectual discussions, and develop critical thinking skills. These clubs foster a love for learning and academic excellence.",
+                      activities: ["Science Club", "Mathematics Society", "Debate Team", "Quiz Club", "Literature Society", "Robotics Club", "Chess Club", "Research Society"],
+                      image: "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                      icon: Users,
+                      achievements: "National Science Olympiad Champions"
+                    },
+                    {
+                      name: "Special Programs",
+                      description: "Our special programs focus on character development, leadership, and community service. These programs prepare students to be responsible citizens and future leaders while making a positive impact in their communities.",
+                      activities: ["Environmental Club", "Leadership Training", "Community Service", "Peer Counseling", "Career Guidance", "Mentorship Program", "Volunteer Work", "Student Government"],
+                      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                      icon: Target,
+                      achievements: "Community Service Excellence Award"
+                    }
+                  ].map((program, index) => (
+                    <motion.div
+                      key={index}
+                      className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+                        index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+                      }`}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                        <div className="space-y-6">
+                          <div className="flex items-center space-x-4">
+                            <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center">
+                              <program.icon className="h-8 w-8 text-primary" />
+                            </div>
+                            <div>
+                              <h3 className="text-2xl md:text-3xl font-bold text-foreground">{program.name}</h3>
+                              <p className="text-sm text-primary font-medium">{program.achievements}</p>
+                            </div>
+                          </div>
+                          
+                          <p className="text-lg text-muted-foreground leading-relaxed">
+                            {program.description}
+                          </p>
+                          
+                          <div className="space-y-4">
+                            <div>
+                              <h4 className="font-semibold text-primary mb-3">Activities & Clubs:</h4>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                {program.activities.map((activity, activityIndex) => (
+                                  <div key={activityIndex} className="flex items-center text-sm text-muted-foreground">
+                                    <div className="w-2 h-2 bg-primary rounded-full mr-3 flex-shrink-0"></div>
+                                    {activity}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            <div className="bg-primary/5 p-4 rounded-lg">
+                              <div className="flex items-center text-sm">
+                                <Award className="h-4 w-4 text-primary mr-2" />
+                                <span className="font-medium text-primary">Recent Achievement:</span>
+                                <span className="ml-2 text-muted-foreground">{program.achievements}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+                        <motion.div
+                          className="relative overflow-hidden rounded-lg shadow-school"
+                          whileHover={{ scale: 1.02 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        >
+                          <img
+                            src={program.image}
+                            alt={program.name}
+                            className="w-full h-80 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                          <div className="absolute bottom-4 left-4 text-white">
+                            <p className="text-sm font-medium">{program.name}</p>
+                            <p className="text-xs opacity-90">{program.achievements}</p>
+                          </div>
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </TabsContent>
