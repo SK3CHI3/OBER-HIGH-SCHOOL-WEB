@@ -13,31 +13,53 @@ const Hero = () => {
   });
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const heroImages = [
     "/images/hero/best group photo students.jpg", // Best group photo of students
     "/images/hero/grupp photo ober.jpg", // Group photo of Ober students
     "/images/about/ober boys main gate.jpg", // School main gate
-    "/images/academics/studensts in class.jpg", // Students in classroom
+    "/images/gallery/students image gruop photo.webp", // Additional group photo
   ];
 
-  // Auto-rotate images every 5 seconds
+  // Auto-rotate images with random timing (4-7 seconds)
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
-
-    return () => clearInterval(interval);
+    const getRandomInterval = () => Math.random() * 3000 + 4000; // 4-7 seconds
+    
+    const scheduleNext = () => {
+      const timeout = setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+        );
+        scheduleNext(); // Schedule the next rotation
+      }, getRandomInterval());
+      
+      return timeout;
+    };
+    
+    const timeout = scheduleNext();
+    return () => clearTimeout(timeout);
   }, [heroImages.length]);
 
   // Preload images and log for debugging
   useEffect(() => {
+    let loadedCount = 0;
     heroImages.forEach((imageUrl, index) => {
       const img = new Image();
-      img.onload = () => console.log(`Hero image ${index + 1} loaded successfully`);
-      img.onerror = () => console.error(`Failed to load hero image ${index + 1}:`, imageUrl);
+      img.onload = () => {
+        console.log(`Hero image ${index + 1} loaded successfully:`, imageUrl);
+        loadedCount++;
+        if (loadedCount === heroImages.length) {
+          setImagesLoaded(true);
+        }
+      };
+      img.onerror = () => {
+        console.error(`Failed to load hero image ${index + 1}:`, imageUrl);
+        loadedCount++;
+        if (loadedCount === heroImages.length) {
+          setImagesLoaded(true);
+        }
+      };
       img.src = imageUrl;
     });
   }, [heroImages]);
@@ -46,16 +68,71 @@ const Hero = () => {
     <section id="home" className="relative h-screen w-full flex items-center overflow-hidden" style={{ minHeight: '100vh' }}>
       {/* Dynamic Background Images */}
       <div className="absolute inset-0">
-        {heroImages.map((image, index) => (
-          <motion.div
-            key={index}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${image})` }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-          />
-        ))}
+        {/* Fallback background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/60"></div>
+        
+        {heroImages.map((image, index) => {
+          // Random movement patterns for each image
+          const movementPatterns = [
+            // Pattern 1: Gentle zoom with slight pan
+            {
+              scale: [1, 1.08, 1.05, 1],
+              x: [0, -15, 10, 0],
+              y: [0, -8, 5, 0]
+            },
+            // Pattern 2: Horizontal pan with zoom
+            {
+              scale: [1, 1.06, 1.02, 1],
+              x: [0, 20, -10, 0],
+              y: [0, 3, -2, 0]
+            },
+            // Pattern 3: Vertical movement with subtle zoom
+            {
+              scale: [1, 1.04, 1.07, 1],
+              x: [0, 5, -8, 0],
+              y: [0, -12, 8, 0]
+            },
+            // Pattern 4: Diagonal movement
+            {
+              scale: [1, 1.05, 1.03, 1],
+              x: [0, -12, 15, 0],
+              y: [0, 6, -10, 0]
+            }
+          ];
+          
+          const pattern = movementPatterns[index % movementPatterns.length];
+          
+          return (
+            <motion.div
+              key={index}
+              className="absolute inset-0"
+              initial={{ opacity: index === 0 ? 1 : 0 }}
+              animate={{ 
+                opacity: currentImageIndex === index ? 1 : 0
+              }}
+              transition={{ 
+                duration: 2.5, 
+                ease: [0.25, 0.46, 0.45, 0.94] // Custom cubic-bezier for smoothness
+              }}
+            >
+              <motion.img
+                src={image}
+                alt={`Ober Boys High School ${index + 1}`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                animate={currentImageIndex === index ? pattern : {}}
+                transition={{
+                  duration: 12,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  repeatType: "reverse"
+                }}
+                onLoad={() => console.log(`Hero image ${index + 1} loaded:`, image)}
+                onError={() => console.error(`Hero image ${index + 1} failed to load:`, image)}
+              />
+            </motion.div>
+          );
+        })}
         {/* Reduced green shade with bottom fade */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent"></div>
       </div>

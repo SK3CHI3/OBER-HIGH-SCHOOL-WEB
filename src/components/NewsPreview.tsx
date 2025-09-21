@@ -84,6 +84,7 @@ const NewsPreview = () => {
                       src={item.image}
                       alt={item.title}
                       className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
                     />
                     <div className="absolute top-4 left-4">
                       <Badge variant="outline" className="bg-white/90 text-foreground">

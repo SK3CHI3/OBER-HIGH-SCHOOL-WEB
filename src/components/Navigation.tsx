@@ -77,7 +77,7 @@ const Navigation = () => {
               </motion.div>
               <div className="block">
                 <div className="text-sm sm:text-lg font-bold text-primary leading-tight">Ober Boys High School</div>
-                <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Determined to Excellence</div>
+                <div className="text-xs sm:text-sm text-muted-foreground leading-tight">Determined to Excell</div>
               </div>
             </Link>
 

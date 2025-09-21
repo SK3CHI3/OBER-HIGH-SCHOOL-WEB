@@ -81,7 +81,7 @@ const About = () => {
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">About Us</Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Determined to Excellence Since 1994
+            Determined to Excell Since 1994
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Ober Boys High School has been a beacon of academic excellence and character development in Kenya, 
@@ -158,6 +158,7 @@ const About = () => {
                     src={image}
                     alt={`School facility ${index + 1}`}
                     className="w-full h-48 object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </motion.div>
@@ -197,6 +198,7 @@ const About = () => {
                           src={partner.logo} 
                           alt={partner.alt}
                           className="w-full h-full object-cover rounded-full"
+                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -326,6 +328,7 @@ const About = () => {
                     src="/images/about/ober boys main gate.jpg"
                     alt="Ober Boys High School Main Gate"
                     className="w-full h-80 object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white">

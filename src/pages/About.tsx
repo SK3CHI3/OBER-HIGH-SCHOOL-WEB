@@ -105,6 +105,7 @@ const About = () => {
                   src="/images/about/ober boys principle.jpg"
                   alt="Principal Mr. David Otieno - Ober Boys High School"
                   className="w-full h-96 object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 text-white">
@@ -166,6 +167,7 @@ const About = () => {
                       src="/images/about/ober boys main gate.jpg"
                       alt="School Foundation 1994"
                       className="w-full h-64 object-cover rounded-lg shadow-school"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -204,6 +206,7 @@ const About = () => {
                       src="/images/academics/studensts in class.jpg"
                       alt="School Growth 2000-2010"
                       className="w-full h-64 object-cover rounded-lg shadow-school"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -242,6 +245,7 @@ const About = () => {
                       src="/images/facilities/ober boys facility.jpg"
                       alt="School Modernization 2010-2020"
                       className="w-full h-64 object-cover rounded-lg shadow-school"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -280,6 +284,7 @@ const About = () => {
                       src="/images/gallery/ober boys ruby team.jpg"
                       alt="Current Excellence 2020-Present"
                       className="w-full h-64 object-cover rounded-lg shadow-school"
+                      loading="lazy"
                     />
                 </div>
                 </div>
@@ -372,6 +377,7 @@ const About = () => {
                       src={program.image}
                       alt={program.title}
                       className="w-full h-80 object-cover"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   </motion.div>

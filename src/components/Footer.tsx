@@ -18,7 +18,7 @@ const Footer = () => {
               <img src={schoolLogo} alt="Ober Boys High School" className="h-12 w-12" />
               <div>
                 <div className="text-xl font-bold">Ober Boys High School</div>
-                <div className="text-sm opacity-90">Determined to Excellence</div>
+                <div className="text-sm opacity-90">Determined to Excell</div>
               </div>
             </div>
             <p className="text-sm opacity-90 mb-6 max-w-md">
