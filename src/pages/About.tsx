@@ -68,15 +68,15 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Principal's Message Section */}
-      <section className="py-20 bg-primary/5">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge variant="secondary" className="mb-4">Principal's Message</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Welcome to Ober Boys High School
-              </h1>
+            </h1>
               <div className="bg-white/50 p-6 rounded-lg shadow-sm mb-6">
                 <Quote className="h-8 w-8 text-primary mb-4" />
                 <p className="text-lg text-muted-foreground leading-relaxed italic">
@@ -189,9 +189,9 @@ const About = () => {
                         <div className="text-3xl font-bold text-primary">2000-2010</div>
                         <div className="text-sm text-muted-foreground font-medium">Growth Phase</div>
                       </div>
-                    </div>
+                </div>
                     <h3 className="text-xl font-bold text-foreground mb-3">Expansion & Recognition</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                       The school expanded significantly with new dormitories, library expansion, and first computer laboratory in 2005. 
                       Received Ministry recognition for academic excellence and introduced co-curricular activities.
                     </p>
@@ -227,9 +227,9 @@ const About = () => {
                         <div className="text-3xl font-bold text-primary">2010-2020</div>
                         <div className="text-sm text-muted-foreground font-medium">Modernization</div>
                       </div>
-                    </div>
+                </div>
                     <h3 className="text-xl font-bold text-foreground mb-3">Infrastructure Development</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                       Major upgrades including modern laboratories, sports facilities, and computer studies. 
                       Achieved 90%+ KCSE pass rates and established university partnerships for scholarships.
                     </p>
@@ -281,10 +281,10 @@ const About = () => {
                       alt="Current Excellence 2020-Present"
                       className="w-full h-64 object-cover rounded-lg shadow-school"
                     />
-                  </div>
+                </div>
                 </div>
               </motion.div>
-            </div>
+          </div>
           </div>
 
           {/* Key Statistics */}
@@ -360,8 +360,8 @@ const About = () => {
                         {subject}
                       </Badge>
                     ))}
+                    </div>
                   </div>
-                </div>
                 <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
                   <motion.div
                     className="relative overflow-hidden rounded-lg shadow-school"
@@ -417,7 +417,7 @@ const About = () => {
                     >
                       <div className="px-6 pb-6">
                         <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
-                      </div>
+                  </div>
                     </motion.div>
                   )}
                 </CardContent>

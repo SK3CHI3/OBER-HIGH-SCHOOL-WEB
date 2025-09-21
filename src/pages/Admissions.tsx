@@ -58,7 +58,7 @@ const Admissions = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-4">Admissions</Badge>

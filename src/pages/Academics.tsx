@@ -223,7 +223,7 @@ const Academics = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 bg-primary/5">
+      <section className="py-20 bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-4">Academics</Badge>
@@ -427,12 +427,12 @@ const Academics = () => {
                 <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold text-foreground mb-4">Our Facilities</h2>
                   <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Modern infrastructure designed to support effective teaching and learning
-                  </p>
-                </div>
+              Modern infrastructure designed to support effective teaching and learning
+            </p>
+          </div>
 
                 <div className="space-y-20">
-                  {facilities.map((facility, index) => (
+            {facilities.map((facility, index) => (
                     <motion.div
                       key={index}
                       className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
@@ -445,7 +445,7 @@ const Academics = () => {
                     >
                       <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                         <div className="space-y-6">
-                          <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between">
                             <h3 className="text-2xl md:text-3xl font-bold text-foreground">{facility.name}</h3>
                             <Badge variant="outline" className="text-primary border-primary/20">
                               {facility.status}
@@ -497,11 +497,11 @@ const Academics = () => {
                             <p className="text-xs opacity-90">{facility.capacity}</p>
                           </div>
                         </motion.div>
-                      </div>
+                  </div>
                     </motion.div>
-                  ))}
-                </div>
-              </div>
+            ))}
+          </div>
+        </div>
             </TabsContent>
 
             {/* Co-curricular Activities Tab */}
@@ -510,9 +510,9 @@ const Academics = () => {
                 <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold text-foreground mb-4">Co-curricular Programs</h2>
                   <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Developing well-rounded students through diverse extracurricular programs and activities
-                  </p>
-                </div>
+              Developing well-rounded students through diverse extracurricular programs and activities
+            </p>
+          </div>
 
                 <div className="space-y-20">
                   {[
@@ -569,7 +569,7 @@ const Academics = () => {
                               <h3 className="text-2xl md:text-3xl font-bold text-foreground">{program.name}</h3>
                               <p className="text-sm text-primary font-medium">{program.achievements}</p>
                             </div>
-                          </div>
+                </div>
                           
                           <p className="text-lg text-muted-foreground leading-relaxed">
                             {program.description}
@@ -586,7 +586,7 @@ const Academics = () => {
                                   </div>
                                 ))}
                               </div>
-                            </div>
+                </div>
                             
                             <div className="bg-primary/5 p-4 rounded-lg">
                               <div className="flex items-center text-sm">
@@ -597,7 +597,7 @@ const Academics = () => {
                             </div>
                           </div>
                         </div>
-                      </div>
+                </div>
                       
                       <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
                         <motion.div
@@ -616,7 +616,7 @@ const Academics = () => {
                             <p className="text-xs opacity-90">{program.achievements}</p>
                           </div>
                         </motion.div>
-                      </div>
+                </div>
                     </motion.div>
                   ))}
                 </div>
