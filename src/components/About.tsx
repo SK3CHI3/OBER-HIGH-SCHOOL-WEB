@@ -81,7 +81,7 @@ const About = () => {
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">About Us</Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Excellence in Education Since 1994
+            Determined to Excellence Since 1994
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Ober Boys High School has been a beacon of academic excellence and character development in Kenya, 
