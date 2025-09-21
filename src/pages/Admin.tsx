@@ -218,7 +218,7 @@ const Admin = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 via-primary/5 to-secondary/10">
+      <section className="py-20 bg-gradient-to-br from-primary/35 via-primary/25 to-secondary/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Badge variant="secondary" className="mb-4">Admin Panel</Badge>
