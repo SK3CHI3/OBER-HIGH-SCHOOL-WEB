@@ -22,9 +22,9 @@ const Hero = () => {
     "/images/gallery/students image gruop photo.webp", // Additional group photo
   ];
 
-  // Auto-rotate images with random timing (6-10 seconds)
+  // Auto-rotate images with random timing (8-12 seconds)
   useEffect(() => {
-    const getRandomInterval = () => Math.random() * 4000 + 6000; // 6-10 seconds
+    const getRandomInterval = () => Math.random() * 4000 + 8000; // 8-12 seconds
     
     const scheduleNext = () => {
       const timeout = setTimeout(() => {
