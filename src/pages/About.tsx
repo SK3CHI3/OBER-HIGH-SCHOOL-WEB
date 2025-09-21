@@ -117,24 +117,213 @@ const About = () => {
         </div>
       </section>
 
-      {/* School History - One Paragraph */}
+      {/* School History - Timeline */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Our History</h2>
-          </div>
-          <div className="bg-background rounded-2xl p-8 shadow-school max-w-4xl mx-auto">
-            <p className="text-lg text-muted-foreground leading-relaxed text-center">
-              Established in 1994 under the Ministry of Education, Ober Boys High School began as a small institution 
-              with 120 students and 8 teaching staff in Homa Bay County. Over the past three decades, we have grown 
-              into one of Kenya's most respected boys' schools, now accommodating over 1,200 students with 45 qualified 
-              teachers. Our journey has been marked by consistent academic excellence, character development, and the 
-              production of outstanding graduates who excel in universities and professional careers across Kenya and 
-              internationally. Today, we maintain a 98% KCSE pass rate and continue to innovate with modern facilities 
-              including our STEM Innovation Center, while staying true to our founding values of discipline, integrity, 
-              and service to the community.
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Journey Through Time</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Three decades of excellence, growth, and transformation in education
             </p>
           </div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary/20 hidden lg:block"></div>
+            
+            <div className="space-y-12">
+              {/* 1994 - Foundation */}
+              <motion.div
+                className="flex flex-col lg:flex-row items-center gap-8"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="lg:w-1/2 lg:pr-12 text-right">
+                  <div className="bg-background rounded-2xl p-8 shadow-school">
+                    <div className="flex items-center justify-end mb-4">
+                      <div className="bg-primary/10 rounded-full p-3 mr-4">
+                        <Clock className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="text-right">
+                        <div className="text-3xl font-bold text-primary">1994</div>
+                        <div className="text-sm text-muted-foreground font-medium">Foundation</div>
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">The Beginning</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Ober Boys High School was established under the Ministry of Education with 120 students and 8 teaching staff. 
+                      Founded by Mr. James Ochieng, the school began with basic facilities and a commitment to academic excellence.
+                    </p>
+                  </div>
+                </div>
+                <div className="lg:w-1/2 lg:pl-12">
+                  <div className="relative">
+                    <div className="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 hidden lg:block"></div>
+                    <img
+                      src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                      alt="School Foundation 1994"
+                      className="w-full h-64 object-cover rounded-lg shadow-school"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 2000-2010 - Growth */}
+              <motion.div
+                className="flex flex-col lg:flex-row-reverse items-center gap-8"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="lg:w-1/2 lg:pl-12 text-left">
+                  <div className="bg-background rounded-2xl p-8 shadow-school">
+                    <div className="flex items-center mb-4">
+                      <div className="bg-primary/10 rounded-full p-3 mr-4">
+                        <Trophy className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <div className="text-3xl font-bold text-primary">2000-2010</div>
+                        <div className="text-sm text-muted-foreground font-medium">Growth Phase</div>
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Expansion & Recognition</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      The school expanded significantly with new dormitories, library expansion, and first computer laboratory in 2005. 
+                      Received Ministry recognition for academic excellence and introduced co-curricular activities.
+                    </p>
+                  </div>
+                </div>
+                <div className="lg:w-1/2 lg:pr-12">
+                  <div className="relative">
+                    <div className="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 hidden lg:block"></div>
+                    <img
+                      src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                      alt="School Growth 2000-2010"
+                      className="w-full h-64 object-cover rounded-lg shadow-school"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 2010-2020 - Modernization */}
+              <motion.div
+                className="flex flex-col lg:flex-row items-center gap-8"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="lg:w-1/2 lg:pr-12 text-right">
+                  <div className="bg-background rounded-2xl p-8 shadow-school">
+                    <div className="flex items-center justify-end mb-4">
+                      <div className="bg-primary/10 rounded-full p-3 mr-4">
+                        <Award className="h-6 w-6 text-primary" />
+                      </div>
+                      <div className="text-right">
+                        <div className="text-3xl font-bold text-primary">2010-2020</div>
+                        <div className="text-sm text-muted-foreground font-medium">Modernization</div>
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Infrastructure Development</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Major upgrades including modern laboratories, sports facilities, and computer studies. 
+                      Achieved 90%+ KCSE pass rates and established university partnerships for scholarships.
+                    </p>
+                  </div>
+                </div>
+                <div className="lg:w-1/2 lg:pl-12">
+                  <div className="relative">
+                    <div className="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 hidden lg:block"></div>
+                    <img
+                      src="https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                      alt="School Modernization 2010-2020"
+                      className="w-full h-64 object-cover rounded-lg shadow-school"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* 2020-Present - Excellence */}
+              <motion.div
+                className="flex flex-col lg:flex-row-reverse items-center gap-8"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="lg:w-1/2 lg:pl-12 text-left">
+                  <div className="bg-background rounded-2xl p-8 shadow-school">
+                    <div className="flex items-center mb-4">
+                      <div className="bg-primary/10 rounded-full p-3 mr-4">
+                        <GraduationCap className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <div className="text-3xl font-bold text-primary">2020-Present</div>
+                        <div className="text-sm text-muted-foreground font-medium">Excellence Era</div>
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-3">Current Excellence</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Today we accommodate 1,200+ students with 45 qualified teachers. Achieved 98% KCSE pass rate, 
+                      established STEM Innovation Center, and continue producing outstanding graduates worldwide.
+                    </p>
+                  </div>
+                </div>
+                <div className="lg:w-1/2 lg:pr-12">
+                  <div className="relative">
+                    <div className="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 hidden lg:block"></div>
+                    <img
+                      src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                      alt="Current Excellence 2020-Present"
+                      className="w-full h-64 object-cover rounded-lg shadow-school"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Key Statistics */}
+          <motion.div
+            className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center">
+              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+              <div className="text-3xl font-bold text-primary mb-2">1,200+</div>
+              <div className="text-sm text-muted-foreground">Current Students</div>
+            </div>
+            <div className="text-center">
+              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <GraduationCap className="h-8 w-8 text-primary" />
+              </div>
+              <div className="text-3xl font-bold text-primary mb-2">45+</div>
+              <div className="text-sm text-muted-foreground">Qualified Teachers</div>
+            </div>
+            <div className="text-center">
+              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Trophy className="h-8 w-8 text-primary" />
+              </div>
+              <div className="text-3xl font-bold text-primary mb-2">98%</div>
+              <div className="text-sm text-muted-foreground">KCSE Pass Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-primary" />
+              </div>
+              <div className="text-3xl font-bold text-primary mb-2">30+</div>
+              <div className="text-sm text-muted-foreground">Years of Excellence</div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
