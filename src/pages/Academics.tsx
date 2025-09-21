@@ -158,7 +158,7 @@ const Academics = () => {
       description: "Our state-of-the-art science laboratories provide students with hands-on experience in Physics, Chemistry, and Biology. Equipped with modern equipment and safety protocols, these labs foster scientific inquiry and research skills essential for university preparation.",
       features: ["Modern equipment", "Safety protocols", "Research facilities", "Digital microscopes", "Chemistry apparatus", "Physics instruments"],
       status: "Operational",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/facilities/ober boys facility.jpg",
       capacity: "40 students per lab"
     },
     {
@@ -166,7 +166,7 @@ const Academics = () => {
       description: "Our cutting-edge computer laboratory features 40 high-performance workstations with high-speed internet connectivity. Students learn programming, digital literacy, and modern technology skills that prepare them for the digital future.",
       features: ["40 computers", "High-speed internet", "Programming software", "Multimedia capabilities", "3D printing", "Coding platforms"],
       status: "Operational",
-      image: "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/academics/studensts in class.jpg",
       capacity: "40 students"
     },
     {
@@ -174,7 +174,7 @@ const Academics = () => {
       description: "Our comprehensive library houses over 5,000 books, digital resources, and quiet study areas. It serves as a hub for research, academic support, and intellectual growth, providing students with access to vast knowledge resources.",
       features: ["5,000+ books", "Digital resources", "Study areas", "Research databases", "E-books", "Quiet zones"],
       status: "Operational",
-      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/facilities/ober boys facility.jpg",
       capacity: "100 students"
     },
     {
@@ -182,7 +182,7 @@ const Academics = () => {
       description: "Our multi-purpose sports complex includes a football field, basketball court, athletics track, and gymnasium. These facilities promote physical fitness, teamwork, and healthy competition while developing students' athletic abilities.",
       features: ["Football field", "Basketball court", "Athletics track", "Gymnasium", "Changing rooms", "Equipment storage"],
       status: "Operational",
-      image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/gallery/ober boys ruby team.jpg",
       capacity: "200+ students"
     },
     {
@@ -190,7 +190,7 @@ const Academics = () => {
       description: "Our newly established STEM Innovation Center features advanced robotics, 3D printing, AI labs, and innovation spaces. This cutting-edge facility prepares students for careers in science, technology, engineering, and mathematics.",
       features: ["Robotics lab", "3D printing", "AI workstations", "Innovation spaces", "Prototyping tools", "Collaboration areas"],
       status: "Operational",
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/facilities/ober boys facility.jpg",
       capacity: "30 students"
     },
     {
@@ -198,7 +198,7 @@ const Academics = () => {
       description: "Our modern dining hall provides nutritious meals for all students in a clean, comfortable environment. The facility includes a fully equipped kitchen, serving areas, and seating for the entire student body.",
       features: ["Modern kitchen", "Serving areas", "Student seating", "Nutrition planning", "Clean environment", "Meal variety"],
       status: "Operational",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/facilities/ober boys facility.jpg",
       capacity: "1,200 students"
     }
   ];
@@ -520,7 +520,7 @@ const Academics = () => {
                       name: "Sports & Athletics",
                       description: "Our comprehensive sports program promotes physical fitness, teamwork, and healthy competition. Students participate in various athletic activities that build character, discipline, and leadership skills while maintaining academic excellence.",
                       activities: ["Football Team", "Basketball", "Athletics Track", "Table Tennis", "Volleyball", "Swimming", "Rugby", "Tennis"],
-                      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                      image: "/images/gallery/ober boys ruby team.jpg",
                       icon: Award,
                       achievements: "Regional Champions 2024"
                     },
@@ -528,7 +528,7 @@ const Academics = () => {
                       name: "Music & Arts",
                       description: "Our vibrant arts program nurtures creativity and self-expression through music, drama, and visual arts. Students develop artistic talents, confidence, and cultural appreciation while showcasing their creativity in various performances and exhibitions.",
                       activities: ["School Choir", "Drama Club", "Traditional Dance", "Art Club", "School Band", "Photography", "Creative Writing", "Cultural Performances"],
-                      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                      image: "/images/gallery/students image gruop photo.webp",
                       icon: Music,
                       achievements: "National Arts Festival Winners"
                     },
@@ -536,7 +536,7 @@ const Academics = () => {
                       name: "Academic Clubs",
                       description: "Our academic clubs provide students with opportunities to explore subjects beyond the classroom, engage in intellectual discussions, and develop critical thinking skills. These clubs foster a love for learning and academic excellence.",
                       activities: ["Science Club", "Mathematics Society", "Debate Team", "Quiz Club", "Literature Society", "Robotics Club", "Chess Club", "Research Society"],
-                      image: "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                      image: "/images/academics/studensts in class.jpg",
                       icon: Users,
                       achievements: "National Science Olympiad Champions"
                     },
@@ -544,7 +544,7 @@ const Academics = () => {
                       name: "Special Programs",
                       description: "Our special programs focus on character development, leadership, and community service. These programs prepare students to be responsible citizens and future leaders while making a positive impact in their communities.",
                       activities: ["Environmental Club", "Leadership Training", "Community Service", "Peer Counseling", "Career Guidance", "Mentorship Program", "Volunteer Work", "Student Government"],
-                      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                      image: "/images/gallery/The 2024 OBER BOYS HIGH SCHOOL STUDENTS COUNCI.jpg",
                       icon: Target,
                       achievements: "Community Service Excellence Award"
                     }

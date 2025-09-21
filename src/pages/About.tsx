@@ -14,25 +14,25 @@ const About = () => {
     {
       title: "Academic Excellence Program",
       description: "Our comprehensive academic program follows the Kenyan 8-4-4 curriculum with enhanced teaching methods and modern facilities. We maintain a 98% KCSE pass rate through rigorous academic standards, personalized attention, and continuous assessment.",
-      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/academics/studensts in class.jpg",
       subjects: ["Mathematics", "Sciences", "Languages", "Humanities", "Business Studies"]
     },
     {
       title: "Character Development Program",
       description: "We focus on building strong moral character, leadership skills, and ethical values. Our program includes mentorship, community service, and leadership training to develop well-rounded individuals who contribute positively to society.",
-      image: "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/gallery/students image gruop photo.webp",
       subjects: ["Leadership Training", "Mentorship", "Community Service", "Ethics Education"]
     },
     {
       title: "Co-curricular Activities",
       description: "Our diverse co-curricular program includes sports, music, drama, debate, and academic clubs. These activities help students discover their talents, build teamwork skills, and develop confidence outside the classroom.",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/gallery/ober boys ruby team.jpg",
       subjects: ["Sports", "Music & Drama", "Debate Club", "Science Club", "Environmental Club"]
     },
     {
       title: "STEM Innovation Program",
       description: "Our cutting-edge STEM program prepares students for the future with modern laboratories, computer studies, robotics, and innovation projects. We have a dedicated STEM Innovation Center with 3D printing and AI labs.",
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/images/facilities/ober boys facility.jpg",
       subjects: ["Computer Studies", "Robotics", "3D Printing", "AI Labs", "Innovation Projects"]
     }
   ];
@@ -163,7 +163,7 @@ const About = () => {
                   <div className="relative">
                     <div className="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 hidden lg:block"></div>
                     <img
-                      src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                      src="/images/about/ober boys main gate.jpg"
                       alt="School Foundation 1994"
                       className="w-full h-64 object-cover rounded-lg shadow-school"
                     />
@@ -201,7 +201,7 @@ const About = () => {
                   <div className="relative">
                     <div className="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 hidden lg:block"></div>
                     <img
-                      src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                      src="/images/academics/studensts in class.jpg"
                       alt="School Growth 2000-2010"
                       className="w-full h-64 object-cover rounded-lg shadow-school"
                     />
@@ -239,7 +239,7 @@ const About = () => {
                   <div className="relative">
                     <div className="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 hidden lg:block"></div>
                     <img
-                      src="https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                      src="/images/facilities/ober boys facility.jpg"
                       alt="School Modernization 2010-2020"
                       className="w-full h-64 object-cover rounded-lg shadow-school"
                     />
@@ -277,7 +277,7 @@ const About = () => {
                   <div className="relative">
                     <div className="w-4 h-4 bg-primary rounded-full absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 hidden lg:block"></div>
                     <img
-                      src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                      src="/images/gallery/ober boys ruby team.jpg"
                       alt="Current Excellence 2020-Present"
                       className="w-full h-64 object-cover rounded-lg shadow-school"
                     />

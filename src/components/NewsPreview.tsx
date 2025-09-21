@@ -14,12 +14,12 @@ const NewsPreview = () => {
   });
 
   const newsImages = [
-    "/school-hero.jpg", // Main school building
-    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Students in classroom
-    "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Library
-    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Science lab
-    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // School campus
-    "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Sports field
+    "/images/hero/best group photo students.jpg", // Best group photo
+    "/images/academics/studensts in class.jpg", // Students in classroom
+    "/images/facilities/ober boys facility.jpg", // School facilities
+    "/images/gallery/ober boys ruby team.jpg", // Sports team
+    "/images/gallery/ober boys bus.jpg", // School bus
+    "/images/gallery/students image gruop photo.webp", // Group photo
   ];
 
   const news = [
@@ -29,7 +29,7 @@ const NewsPreview = () => {
       excerpt: "Our students secured first place in the National Science Olympiad with their groundbreaking renewable energy project, earning international recognition and a scholarship opportunity.",
       date: "2024-12-15",
       category: "Achievement",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/images/news/ober boys have won the footabal regional cup.jpg"
     },
     {
       id: 2, 
@@ -37,7 +37,7 @@ const NewsPreview = () => {
       excerpt: "The school inaugurated a cutting-edge STEM Innovation Center with advanced robotics, AI labs, and 3D printing facilities to prepare students for the future of technology.",
       date: "2024-12-10",
       category: "Infrastructure",
-      image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/images/facilities/ober boys facility.jpg"
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ const NewsPreview = () => {
       excerpt: "Our 2024 KCSE candidates achieved a remarkable 98% pass rate with 15 students scoring A grades, setting a new school record and maintaining our position among top schools.",
       date: "2024-12-05",
       category: "Academic",
-      image: "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/images/academics/studensts in class.jpg"
     }
   ];
 

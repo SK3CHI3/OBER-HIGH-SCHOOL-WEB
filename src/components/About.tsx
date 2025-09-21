@@ -154,15 +154,15 @@ const About = () => {
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       whileHover={{ scale: 1.02 }}
                     >
-                      <img
-                        src={image}
-                        alt={`School facility ${index + 1}`}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    </motion.div>
-                  ))}
-                </div>
+                  <img
+                    src={image}
+                    alt={`School facility ${index + 1}`}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -323,7 +323,7 @@ const About = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    src="/images/about/ober boys main gate.jpg"
                     alt="Ober Boys High School Main Gate"
                     className="w-full h-80 object-cover"
                   />
