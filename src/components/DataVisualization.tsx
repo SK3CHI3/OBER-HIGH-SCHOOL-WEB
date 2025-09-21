@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
-import { TrendingUp, Users, BookOpen, Award } from "lucide-react";
+import { TrendingUp, Users, BookOpen, Award, ArrowUp, ArrowDown, Minus } from "lucide-react";
 
 interface DataPoint {
   label: string;
@@ -117,11 +117,20 @@ const DataVisualization = () => {
                     </div>
                     <div className="text-sm text-muted-foreground">
                       {index > 0 && item.value > achievementsData[index - 1].value ? (
-                        <span className="text-green-600">↗ +{item.value - achievementsData[index - 1].value}%</span>
+                        <div className="flex items-center space-x-1 text-green-600">
+                          <ArrowUp className="h-3 w-3" />
+                          <span>+{item.value - achievementsData[index - 1].value}%</span>
+                        </div>
                       ) : index > 0 ? (
-                        <span className="text-red-600">↘ {item.value - achievementsData[index - 1].value}%</span>
+                        <div className="flex items-center space-x-1 text-red-600">
+                          <ArrowDown className="h-3 w-3" />
+                          <span>{item.value - achievementsData[index - 1].value}%</span>
+                        </div>
                       ) : (
-                        <span className="text-gray-600">Baseline</span>
+                        <div className="flex items-center space-x-1 text-gray-600">
+                          <Minus className="h-3 w-3" />
+                          <span>Baseline</span>
+                        </div>
                       )}
                     </div>
                   </div>
