@@ -102,8 +102,8 @@ const About = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Principal Mr. David Otieno"
+                  src="/images/about/ober boys principle.jpg"
+                  alt="Principal Mr. David Otieno - Ober Boys High School"
                   className="w-full h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

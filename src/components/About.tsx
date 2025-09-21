@@ -32,12 +32,12 @@ const About = () => {
   });
 
   const schoolImages = [
-    "/school-hero.jpg", // Main school building
-    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Students in classroom
-    "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Library
-    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Science lab
-    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // School campus
-    "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Sports field
+    "/images/about/ober boys main gate.jpg", // School main gate
+    "/images/academics/studensts in class.jpg", // Students in classroom
+    "/images/facilities/ober boys facility.jpg", // School facilities
+    "/images/gallery/ober boys bus.jpg", // School bus
+    "/images/gallery/ober boys ruby team.jpg", // Rugby team
+    "/images/gallery/students image gruop photo.webp", // Group photo
   ];
 
   const stats = [
