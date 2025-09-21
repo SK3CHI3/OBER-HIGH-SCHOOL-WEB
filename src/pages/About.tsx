@@ -89,7 +89,7 @@ const About = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground">Mr. David Otieno</h3>
+                  <h3 className="text-xl font-bold text-foreground">Mr. Tom Mboya</h3>
                   <p className="text-primary font-semibold">Principal</p>
                   <p className="text-sm text-muted-foreground">M.Ed Educational Leadership</p>
                 </div>
@@ -103,13 +103,13 @@ const About = () => {
               >
                 <img
                   src="/images/about/ober boys principle.jpg"
-                  alt="Principal Mr. David Otieno - Ober Boys High School"
+                  alt="Principal Mr. Tom Mboya - Ober Boys High School"
                   className="w-full h-96 object-cover"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 text-white">
-                  <p className="text-sm font-medium">Mr. David Otieno</p>
+                  <p className="text-sm font-medium">Mr. Tom Mboya</p>
                   <p className="text-xs opacity-90">Principal - Ober Boys High School</p>
                 </div>
               </motion.div>
