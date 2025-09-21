@@ -1,7 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Target, Eye, Heart, Trophy, GraduationCap, Users, Wifi, Shield, FileText, Award, BookOpen, Clock, MapPin, Phone, Mail, Star, CheckCircle } from "lucide-react";
+import { Target, Eye, Heart, Trophy, GraduationCap, Users, Wifi, Shield, FileText, Award, BookOpen, Clock, MapPin, Phone, Mail, Star, CheckCircle, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -287,7 +288,7 @@ const About = () => {
           </motion.div>
         </motion.div>
 
-        {/* School History */}
+        {/* Brief School History */}
         <motion.div 
           ref={ref4}
           className="mb-16"
@@ -296,115 +297,42 @@ const About = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="bg-background rounded-2xl p-8 shadow-school">
-            <h3 className="text-2xl font-bold text-primary mb-8 text-center">School History</h3>
-            
-            {/* Timeline */}
-            <div className="space-y-8">
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="md:w-1/3">
-                  <div className="bg-primary/10 rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">1994</div>
-                    <div className="text-sm text-muted-foreground">Foundation</div>
-                  </div>
-                </div>
-                <div className="md:w-2/3">
-                  <h4 className="text-lg font-semibold mb-3 text-foreground">Establishment</h4>
-                  <p className="text-muted-foreground">
-                    Ober Boys High School was established under the Ministry of Education, Republic of Kenya, 
-                    as a public secondary school. The school began with 120 students and 8 teaching staff, 
-                    committed to providing quality education to young men in the region.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="md:w-1/3">
-                  <div className="bg-primary/10 rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">2000-2010</div>
-                    <div className="text-sm text-muted-foreground">Growth Phase</div>
-                  </div>
-                </div>
-                <div className="md:w-2/3">
-                  <h4 className="text-lg font-semibold mb-3 text-foreground">Expansion & Recognition</h4>
-                  <p className="text-muted-foreground">
-                    The school expanded its facilities and student population. Received recognition from the 
-                    Ministry of Education for academic excellence and discipline. Established strong partnerships 
-                    with local communities and educational institutions.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="md:w-1/3">
-                  <div className="bg-primary/10 rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">2010-2020</div>
-                    <div className="text-sm text-muted-foreground">Modernization</div>
-                  </div>
-                </div>
-                <div className="md:w-2/3">
-                  <h4 className="text-lg font-semibold mb-3 text-foreground">Infrastructure Development</h4>
-                  <p className="text-muted-foreground">
-                    Major infrastructure upgrades including modern laboratories, library expansion, and sports facilities. 
-                    Introduction of computer studies and enhanced co-curricular programs. Consistent top performance 
-                    in KCSE examinations.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="md:w-1/3">
-                  <div className="bg-primary/10 rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-primary mb-2">2020-Present</div>
-                    <div className="text-sm text-muted-foreground">Excellence</div>
-                  </div>
-                </div>
-                <div className="md:w-2/3">
-                  <h4 className="text-lg font-semibold mb-3 text-foreground">Current Status</h4>
-                  <p className="text-muted-foreground">
-                    Today, Ober Boys High School accommodates over 1,200 students with 45 qualified teachers. 
-                    The school continues to maintain high academic standards, producing graduates who excel in 
-                    universities and professional careers across Kenya and internationally.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Key Achievements */}
-            <div className="mt-12 pt-8 border-t border-border">
-              <h4 className="text-xl font-semibold mb-6 text-primary text-center">Key Achievements</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Trophy className="h-8 w-8 text-primary" />
-                  </div>
-                  <h5 className="font-semibold mb-2">Academic Excellence</h5>
-                  <p className="text-sm text-muted-foreground">Consistently high KCSE performance</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Users className="h-8 w-8 text-primary" />
-                  </div>
-                  <h5 className="font-semibold mb-2">Alumni Success</h5>
-                  <p className="text-sm text-muted-foreground">Graduates in medicine, engineering, law</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Shield className="h-8 w-8 text-primary" />
-                  </div>
-                  <h5 className="font-semibold mb-2">Ministry Recognition</h5>
-                  <p className="text-sm text-muted-foreground">Multiple awards for excellence</p>
-                </div>
-        </div>
-              
-              {/* Fee Structure Download */}
-              <div className="mt-8 text-center">
-                <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                  <FileText className="h-4 w-4" />
-                  <span>For detailed fee structure and payment information,</span>
-                  <Button variant="link" className="p-0 h-auto text-primary hover:text-primary/80">
-                    download our fee structure PDF
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-primary mb-6">Our Story</h3>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Established in 1994 under the Ministry of Education, Ober Boys High School began as a small institution 
+                  with 120 students and 8 teaching staff. Over the past three decades, we have grown into one of Kenya's 
+                  most respected boys' schools, now accommodating over 1,200 students with 45 qualified teachers. 
+                  Our journey has been marked by consistent academic excellence, character development, and the production 
+                  of outstanding graduates who excel in universities and professional careers across Kenya and internationally.
+                </p>
+                <div className="mt-6">
+                  <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                    <Link to="/about">
+                      Read Complete History
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                 </div>
+              </div>
+              <div className="relative">
+                <motion.div
+                  className="relative overflow-hidden rounded-lg shadow-school"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Ober Boys High School Main Gate"
+                    className="w-full h-80 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="text-sm font-medium">Ober Boys High School Main Gate</p>
+                    <p className="text-xs opacity-90">Established 1994</p>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>
