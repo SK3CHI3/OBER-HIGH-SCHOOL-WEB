@@ -13,46 +13,25 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: "Dr. James Ochieng",
-      role: "Parent & Medical Doctor",
-      content: "Ober Boys High School transformed my son into a confident, disciplined young man. The academic excellence and character development programs are exceptional. He's now thriving at university.",
-      rating: 5,
-      year: "Parent of 2024 Graduate"
-    },
-    {
       name: "Michael Otieno",
-      role: "Software Engineer at Microsoft",
-      content: "The foundation I received at Ober Boys prepared me well for university and my career. The teachers genuinely cared about our success and pushed us to excel beyond our limits.",
+      role: "Alumni - Software Engineer at Microsoft",
+      content: "The foundation I received at Ober Boys prepared me well for university and my career. The teachers genuinely cared about our success and pushed us to excel beyond our limits. The discipline and academic rigor here shaped me into the professional I am today.",
       rating: 5,
       year: "Class of 2019 - Now at Microsoft"
     },
     {
-      name: "Grace Akinyi",
-      role: "Parent & Business Owner",
-      content: "Choosing Ober Boys was the best decision we made for our son's education. The school's values, modern facilities, and commitment to excellence are truly remarkable.",
+      name: "Mrs. Sarah Wanjiku",
+      role: "Teacher - Mathematics Department",
+      content: "Teaching at Ober Boys has been incredibly rewarding. The students are motivated, respectful, and eager to learn. The school's commitment to academic excellence and character development creates an environment where both students and teachers can thrive.",
       rating: 5,
-      year: "Current Parent"
+      year: "Teacher since 2018"
     },
     {
-      name: "Peter Mwangi",
-      role: "University Student at UoN",
-      content: "The rigorous academic program and supportive environment at Ober Boys gave me the confidence to pursue my dreams. The teachers are world-class and truly dedicated.",
+      name: "Dr. James Ochieng",
+      role: "Parent & Medical Doctor",
+      content: "Ober Boys High School transformed my son into a confident, disciplined young man. The academic excellence and character development programs are exceptional. He's now thriving at university and I credit much of his success to the solid foundation he received here.",
       rating: 5,
-      year: "Class of 2023 - Pursuing Medicine"
-    },
-    {
-      name: "Sarah Wanjiku",
-      role: "Parent & Teacher",
-      content: "As an educator myself, I can attest to the quality of education at Ober Boys. The innovative teaching methods and personalized attention make all the difference.",
-      rating: 5,
-      year: "Parent of Current Student"
-    },
-    {
-      name: "David Kimani",
-      role: "Investment Banker",
-      content: "Ober Boys taught me discipline, critical thinking, and leadership skills that I use daily in my career. The school's emphasis on character development is unmatched.",
-      rating: 5,
-      year: "Class of 2018 - Now in Finance"
+      year: "Parent of 2024 Graduate"
     }
   ];
 
@@ -71,7 +50,7 @@ const Testimonials = () => {
 
         <motion.div 
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}

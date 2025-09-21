@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, FileText, Calendar, DollarSign, User, Phone, Mail, Clock } from "lucide-react";
+import { CheckCircle, FileText, Calendar, DollarSign, User, Phone, Mail, Clock, GraduationCap, Users, Wifi, Shield } from "lucide-react";
 
 const Admissions = () => {
   const requirements = [
@@ -216,6 +216,70 @@ const Admissions = () => {
                 <h3 className="text-xl font-bold mb-2">School Opens</h3>
                 <p className="text-2xl font-bold text-primary mb-2">February 5, 2025</p>
                 <p className="text-sm text-muted-foreground">Term 1 begins</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-secondary/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Why Choose Ober Boys High School?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We offer a comprehensive educational experience that goes beyond academics
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="shadow-school transition-school hover:shadow-strong text-center">
+              <CardContent className="p-8">
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <GraduationCap className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Academic Excellence</h3>
+                <p className="text-muted-foreground">
+                  Consistently high KCSE performance and university placement rates with 98% pass rate
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-school transition-school hover:shadow-strong text-center">
+              <CardContent className="p-8">
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Experienced Faculty</h3>
+                <p className="text-muted-foreground">
+                  Qualified and dedicated teachers committed to student success and character development
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-school transition-school hover:shadow-strong text-center">
+              <CardContent className="p-8">
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Wifi className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Modern Facilities</h3>
+                <p className="text-muted-foreground">
+                  Well-equipped laboratories, library, sports facilities, and STEM innovation center
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-school transition-school hover:shadow-strong text-center">
+              <CardContent className="p-8">
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Character Development</h3>
+                <p className="text-muted-foreground">
+                  Strong emphasis on moral values, leadership skills, and ethical decision making
+                </p>
               </CardContent>
             </Card>
           </div>

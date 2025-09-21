@@ -35,6 +35,8 @@ const About = () => {
     "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Students in classroom
     "https://images.unsplash.com/photo-1523240798034-6c5a0c4a4c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Library
     "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Science lab
+    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // School campus
+    "https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", // Sports field
   ];
 
   const stats = [
@@ -151,15 +153,15 @@ const About = () => {
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       whileHover={{ scale: 1.02 }}
                     >
-                  <img
-                    src={image}
-                    alt={`School facility ${index + 1}`}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                </motion.div>
-              ))}
-            </div>
+                      <img
+                        src={image}
+                        alt={`School facility ${index + 1}`}
+                        className="w-full h-48 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    </motion.div>
+                  ))}
+                </div>
           </div>
         </motion.div>
 
@@ -408,64 +410,6 @@ const About = () => {
           </div>
         </motion.div>
 
-        {/* Why Choose Us */}
-        <motion.div 
-          className="bg-background rounded-2xl p-8 shadow-school"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView4 ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Why Choose Ober Boys High School?
-            </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              We offer a comprehensive educational experience that goes beyond academics
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <GraduationCap className="h-6 w-6 text-primary" />
-              </div>
-              <h4 className="font-semibold mb-2">Academic Excellence</h4>
-              <p className="text-sm text-muted-foreground">
-                Consistently high KCSE performance and university placement rates
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="h-6 w-6 text-primary" />
-              </div>
-              <h4 className="font-semibold mb-2">Experienced Faculty</h4>
-              <p className="text-sm text-muted-foreground">
-                Qualified and dedicated teachers committed to student success
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Wifi className="h-6 w-6 text-primary" />
-              </div>
-              <h4 className="font-semibold mb-2">Modern Facilities</h4>
-              <p className="text-sm text-muted-foreground">
-                Well-equipped laboratories, library, and sports facilities
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-6 w-6 text-primary" />
-              </div>
-              <h4 className="font-semibold mb-2">Character Development</h4>
-              <p className="text-sm text-muted-foreground">
-                Strong emphasis on moral values and leadership skills
-              </p>
-            </div>
-          </div>
-            </motion.div>
 
       </div>
     </section>

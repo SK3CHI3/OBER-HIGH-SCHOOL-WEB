@@ -43,20 +43,21 @@ const Hero = () => {
   }, [heroImages]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative h-screen flex items-center overflow-hidden">
       {/* Dynamic Background Images */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent">
+      <div className="absolute inset-0">
         {heroImages.map((image, index) => (
           <motion.div
             key={index}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${image})` }}
             initial={{ opacity: 0 }}
             animate={{ opacity: currentImageIndex === index ? 1 : 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           />
         ))}
-        <div className="absolute inset-0 hero-gradient opacity-85"></div>
+        {/* Reduced green shade with bottom fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent"></div>
       </div>
       
       {/* Content */}
@@ -119,7 +120,7 @@ const Hero = () => {
                   <Button asChild
                     size="lg" 
                     variant="outline" 
-                    className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 border-white text-white hover:bg-white hover:text-primary group"
+                    className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 border-2 border-white/80 text-white bg-transparent hover:bg-white/10 hover:border-white group backdrop-blur-sm"
                   >
                     <Link to="/gallery">
                       <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform" />

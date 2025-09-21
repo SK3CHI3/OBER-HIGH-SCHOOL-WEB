@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import schoolLogo from "@/assets/school-logo.png";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -19,10 +21,22 @@ const Footer = () => {
                 <div className="text-sm opacity-90">Excellence in Education</div>
               </div>
             </div>
-            <p className="text-sm opacity-90 mb-6 max-w-md">
+            <p className="text-sm opacity-90 mb-4 max-w-md">
               Empowering Young Men Through Academic Excellence, Character Development, and Leadership Training. 
               Premier boys' high school in Kenya since 1994.
             </p>
+            <div className="mb-6 p-4 bg-white/10 rounded-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <div className="font-semibold mb-1">School Code</div>
+                  <div className="opacity-90">12345678</div>
+                </div>
+                <div>
+                  <div className="font-semibold mb-1">Registration No.</div>
+                  <div className="opacity-90">MOE/123/456/789</div>
+                </div>
+              </div>
+            </div>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-white/20">
                 <Facebook className="h-5 w-5" />
@@ -105,11 +119,12 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm opacity-75 mb-4 md:mb-0">
-            © 2024 Ober Boys High School. All rights reserved.
+            © {currentYear} Ober Boys High School. All rights reserved.
           </p>
-          <div className="flex space-x-6 text-sm opacity-75">
-            <a href="#" className="hover:opacity-100 transition-opacity">Privacy Policy</a>
-            <a href="#" className="hover:opacity-100 transition-opacity">Terms of Service</a>
+          <div className="flex flex-wrap gap-4 md:gap-6 text-sm opacity-75">
+            <a href="/privacy-policy" className="hover:opacity-100 transition-opacity">Privacy Policy</a>
+            <a href="/terms-of-service" className="hover:opacity-100 transition-opacity">Terms of Service</a>
+            <a href="/admissions-policy" className="hover:opacity-100 transition-opacity">Admissions Policy</a>
             <a href="/contact" className="hover:opacity-100 transition-opacity">Contact Us</a>
           </div>
         </div>
